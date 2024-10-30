@@ -1,0 +1,25 @@
+.current-order {
+  margin: 0.5rem auto;
+
+  .current-order-description {
+    font-style: normal;
+    margin: 0;
+    font-size: 14px;
+    color: var(--dark-grey-color);
+
+    &.data-not-full {
+      font-style: italic;
+      font-weight: normal;
+      color: var(--medium-grey-color);
+    }
+  }
+
+  .order-elements {
+    padding: 1rem;
+    margin: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+}

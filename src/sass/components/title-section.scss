@@ -1,0 +1,21 @@
+.title-section, .display-section {
+  width: calc(100% - 10px);
+  min-width: var(--min-page-width);
+  max-width: var(--max-page-width);
+  margin: 0 0 0 10px;
+}
+
+.title-section {
+  font-size: 12px;
+  p {
+    line-height: 16px;
+  }
+  label {
+    display: inline-block;
+    margin-right: 12px;
+  }
+}
+
+.display-section {
+  font-size: 14px;
+}
