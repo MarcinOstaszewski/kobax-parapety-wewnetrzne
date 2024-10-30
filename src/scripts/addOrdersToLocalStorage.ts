@@ -10,13 +10,14 @@ export function addOrderToLocalStorage(params: Order) {
   const textContent = params.textContent;
   const addToLastOrder = params.addToLastOrder;
   const queriesString = params.queriesString;
-  console.log(queriesString);
+  const surface = params.surface;
   if (addToLastOrder && orders.length && type as unknown as string === orderTypes.multi) {
     const lastOrder = orders.shift();
     lastOrder.textContent += textContent;
     lastOrder.lastRowNumber = params.lastRowNumber;
     lastOrder.queriesString = queriesString;
     lastOrder.cenaNetto += parseFloat(document.getElementById(CENA_NETTO)!.innerText);
+    lastOrder.surface = surface;
     orders.unshift(lastOrder);
   } else {
     const newOrder: Order = {
@@ -26,10 +27,9 @@ export function addOrderToLocalStorage(params: Order) {
       type: type as typeof orderTypes,
       lastRowNumber: 1,
       cenaNetto: parseFloat(document.getElementById(CENA_NETTO)!.innerText),
-      surface: 0
+      surface: surface
     };
     orders.unshift(newOrder);
-    console.log(orders);
   }
   setTimeout(function() {
     document.querySelector('.changed')?.classList.remove('changed');

@@ -92,3 +92,13 @@ export function flashNewListElement() {
   const firstListElement = document.querySelector('.orders-list-elements li');
   if (firstListElement) firstListElement.classList.add('changed');
 }
+
+export function updateValues(
+  { surface, queriesString, dodatkowe, dlugosc, szerokosc, ilosc }:
+  { surface: number, queriesString: string, dodatkowe: string, dlugosc: number, szerokosc: number, ilosc: number }
+) {
+  surface += dlugosc * szerokosc * ilosc / 100;
+  queriesString += 'powierzchnia=' + surface + '&';
+  dodatkowe += ('Powierzchnia zamówienia wynosi: ' + (surface / 10000).toFixed(3) + ' m²').replace('.', ',');
+  return [surface, queriesString, dodatkowe];
+}

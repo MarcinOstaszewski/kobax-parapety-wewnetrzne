@@ -1,7 +1,7 @@
 import { AKTUALNE_ZAMOWIENIE, entriesToAddRowNumber } from "../consts/consts";
 import { currentOrderDescription } from "../consts/consts-ui-elements";
 import { orderTypes } from "../consts/mappings";
-import { flashNewListElement } from "../utils/utils-ui-updates";
+import { flashNewListElement, updateValues } from "../utils/utils-ui-updates";
 import { getFormData, getOrderURL } from "../utils/utils";
 import { partialFormReset, resetForm } from "../utils/utils-ui-updates";
 import { showOrdersListFromLocalStorage } from "./showOrdersListFromLocalStorage";
@@ -23,9 +23,9 @@ export function addNewOrderToList(type: keyof typeof orderTypes = orderTypes.nor
       if (entriesToAddRowNumber.includes(entry)) {
         value += '-row-' + 1;
       }
-      if (entry === 'rabat' && data[entry] !== '0') {
-        dodatkowe += 'Rabat:' + data[entry] + '%& /n';
-      }
+      // if (entry === 'rabat' && data[entry] !== '0') {
+      //   dodatkowe += 'Rabat:' + data[entry] + '%& /n';
+      // }
       if (entry === 'dlugosc') dlugosc = parseFloat(data[entry] as string);
       if (entry === 'szerokosc') szerokosc = parseFloat(data[entry] as string);
       if (entry === 'ilosc') ilosc = parseFloat(data[entry] as string);
@@ -33,10 +33,10 @@ export function addNewOrderToList(type: keyof typeof orderTypes = orderTypes.nor
     }
   }
   if (dlugosc && szerokosc && ilosc) {
-    surface = dlugosc * szerokosc * ilosc;
-    queriesString += 'powierzchnia=' + surface + '&';
-    console.log('Powierzchnia zamówienia wynosi: ' + surface);
-    dodatkowe += 'Powierzchnia zamówienia wynosi: ' + surface; // (surface / 1000000).toFixed(3) + 'm² ';
+    const [s, q, d] = updateValues({dlugosc, szerokosc, ilosc, surface, queriesString, dodatkowe});
+    surface = s as number;
+    queriesString = q as string;
+    dodatkowe = d as string;
   }
 
   if (dodatkowe) {

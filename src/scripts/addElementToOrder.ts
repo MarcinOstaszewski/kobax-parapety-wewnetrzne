@@ -3,7 +3,7 @@ import { currentOrderDescription } from '../consts/consts-ui-elements';
 import { orderTypes } from '../consts/mappings';
 import { Order } from '../types/types';
 import { getFormData, getOrdersFromLocalStorage, getOrderURL } from '../utils/utils'
-import { flashNewListElement, partialFormReset } from '../utils/utils-ui-updates';
+import { flashNewListElement, partialFormReset, updateValues } from '../utils/utils-ui-updates';
 import { addNewOrderToList } from './addNewOrderToList';
 import { addOrderToLocalStorage } from './addOrdersToLocalStorage';
 import { showOrdersListFromLocalStorage } from './showOrdersListFromLocalStorage';
@@ -11,7 +11,6 @@ import { showOrdersListFromLocalStorage } from './showOrdersListFromLocalStorage
 export function addElementToOrder() {
   const ordersList = getOrdersFromLocalStorage();
   const lastOrder = ordersList[0] || {} as Order;
-  console.log('lastOrder', lastOrder);
   const existsLastOrder = Object.keys(ordersList).length;
   const type = existsLastOrder ? lastOrder.type : null;
   if (existsLastOrder && type as unknown as string === orderTypes.multi) { // dodaje do istniejącego zamówienia
@@ -21,12 +20,11 @@ export function addElementToOrder() {
     let dlugosc = 0;
     let szerokosc = 0;
     let ilosc = 0;
-    let surface = 0;
-    let dodatkowe = 'dodatkowe=';
+    let surface = lastOrder.surface;
+    let dodatkowe = '';
     for (const entry in data) {
       if (data[entry] !== "") {
         if (entriesToAddRowNumber.includes(entry)) {
-          console.log('entry', entry);
           queriesString += entry + '-row-' + newRowNumber + "=" + data[entry] + "&";
           if (entry === 'dlugosc') dlugosc = parseFloat(data[entry] as string);
           if (entry === 'szerokosc') szerokosc = parseFloat(data[entry] as string);
@@ -36,16 +34,19 @@ export function addElementToOrder() {
     }
 
     if (dlugosc && szerokosc && ilosc) {
-      surface = dlugosc * szerokosc * ilosc;
-      queriesString += 'powierzchnia=' + surface + '&';
-      console.log('Powierzchnia zamówienia wynosi: ' + surface);
-      dodatkowe += 'Powierzchnia zamówienia wynosi: ' + surface; // (surface / 1000000).toFixed(3) + 'm² ';
+      const powierzchniaIndex = queriesString.indexOf('powierzchnia=');
+      const m2Index = queriesString.indexOf('m²');
+      queriesString = queriesString.substring(0, powierzchniaIndex) + queriesString.substring(m2Index + 2);
+      console.log('queriesString', queriesString);
+      const [s, q, d] = updateValues({dlugosc, szerokosc, ilosc, surface, queriesString, dodatkowe});
+      surface = s as number;
+      queriesString = q as string;
+      dodatkowe = d as string;
     }
   
     if (dodatkowe) {
-      queriesString += dodatkowe + "&";
+      queriesString += 'dodatkowe=' + dodatkowe + "&";
     }
-
 
     const url = getOrderURL();
     let textContent = currentOrderDescription.innerHTML;
@@ -56,7 +57,8 @@ export function addElementToOrder() {
       queriesString: queriesString,
       type: type,
       lastRowNumber: newRowNumber,
-      addToLastOrder: true
+      addToLastOrder: true,
+      surface: surface
     });
     partialFormReset();
     showOrdersListFromLocalStorage();
@@ -65,32 +67,3 @@ export function addElementToOrder() {
     addNewOrderToList(orderTypes.multi);
   }
 }
-
-//   let dlugosc = 0;
-//   let szerokosc = 0;
-//   let surface = 0;
-//   let dodatkowe = 'dodatkowe=';
-
-//   for (const entry in data) {
-//     if (data[entry] !== "") {
-//       let value = entry ;
-//       if (entriesToAddRowNumber.includes(entry)) {
-//         value += '-row-' + 1;
-//       }
-//       if (entry === 'rabat' && data[entry] !== '0') {
-//         dodatkowe += 'Rabat:' + data[entry] + '%& /n';
-//       }
-//       if (entry === 'dlugosc') dlugosc = parseFloat(data[entry] as string);
-//       if (entry === 'szerokosc') szerokosc = parseFloat(data[entry] as string);
-//       queriesString += value + "=" + data[entry] + "&";
-//     }
-//   }
-//   if (dlugosc && szerokosc) {
-//     surface = dlugosc * szerokosc;
-//     console.log('Powierzchnia zamówienia wynosi: ' + surface);
-//     dodatkowe += 'Powierzchnia zamówienia wynosi: ' + (surface / 1000000).toFixed(3) + 'm² ';
-//   }
-
-//   if (dodatkowe) {
-//     queriesString += dodatkowe;  //  + "&";
-//   }
