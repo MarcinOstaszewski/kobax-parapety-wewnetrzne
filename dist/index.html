@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-<script defer src="main.bae4c375ba018d32a4b0.js"></script></head>
+<script defer src="main.a24173d884eab62defa7.js"></script></head>
 <body>
   <main>
     <section class="title-section">
@@ -17,13 +17,6 @@
       <p><label>Wysyłka: </label><strong>Wysyłamy na terenie całej Polski. Cena nie zawiera kosztów przesyłki. Wysyłka wyceniana indywidualnie.</strong></p>
       <p><label>Nietypowe kształty: </label><strong>Nietypowe zamówienia wyceniamy indywidualnie. Napisz na <a href="mailto:zakupy@kobax.pl">zakupy@kobax.pl</a></strong></p>
       <p><label>Dodatkowe informacje: </label><strong>Wycena nie zawiera kosztów łączników (w przypadku zamówienia parapetów do łączenia).</strong></p>
-    </section>
-    <section class="display-section mt-md">
-      <p><label for="powierzchnia">Powierzchnia:</label><strong id="powierzchnia"></strong></p>
-      <p><label>Cena:</label><strong id="cena-brutto"></strong></p>
-      <p><small>( 1 m² = <span id="cena-m2-brutto">[wybierz rodzaj]</span> )</small> <small class="text-gray">zawiera 23.00% VAT, bez kosztów dostawy</small></p>
-      <p><label>Cena netto:</label><strong id="cena-netto"></strong></p>
-      <p><small>( 1 m² = <span id="cena-m2-netto">[wybierz rodzaj]</span> )</small> <small class="text-gray">bez 23.00% VAT i kosztów dostawy</small></p>
     </section>
     <form id="kalkulator-parapetow" class="calculator-form mt-md">
       <div class="form-group">
@@ -47,14 +40,14 @@
       </div>
       <div class="form-group">
         <label for="standard">Grubość:</label>
-        <div class="radio-group">
-          <label><input type="radio" name="standard" value="18">18 mm</label>
-          <label><input type="radio" name="standard" value="22">22 mm</label>
-          <label><input type="radio" name="standard" value="28">28 mm</label>
+        <div class="radio-group grubosc-radio-group">
+          <label class="standard"><input type="radio" name="grubosc" value="18">18 mm</label>
+          <label class="standard"><input type="radio" name="grubosc" value="22">22 mm</label>
+          <label class="standard"><input type="radio" name="grubosc" value="28">28 mm</label>
         
-          <label class="hidden"><input type="radio" name="wilgociouodporniony" value="19">19 mm</label>
-          <label class="hidden"><input type="radio" name="wilgociouodporniony" value="25">25 mm</label>
-          <label class="hidden"><input type="radio" name="wilgociouodporniony" value="30">30 mm</label>
+          <label class="wilgociouodporniony hidden"><input type="radio" name="grubosc" value="19">19 mm</label>
+          <label class="wilgociouodporniony hidden"><input type="radio" name="grubosc" value="25">25 mm</label>
+          <label class="wilgociouodporniony hidden"><input type="radio" name="grubosc" value="30">30 mm</label>
         </div>
       </div>
       <div class="form-group">
@@ -157,7 +150,7 @@
         <label for="dlugosc">Długość (mm):</label>
         <input type="number" id="dlugosc" name="dlugosc" min="200" max="3000"class="width-narrow">
         <div class="position-relative">
-          <img src="assets/wymiary.png" alt="Wymiary" class="img-dimensions" />
+          <img src="assets/wymiary.webp" alt="Wymiary" class="img-dimensions" />
         </div>
       </div>
       <div class="form-group">
