@@ -1,7 +1,7 @@
 (function init() {
   const formId = "parapety-wewnetrzne";
   const DOSTAWA = "dostawa";
-  const requiredFieldIds = ["nazwa", "adres", "email", "telefon", "naroznik", "krawedz", "kolor", "kolor-symbol", "rodzaj", "grubosc", DOSTAWA];
+  const requiredFieldIds = ["nazwa", "adres", "email", "telefon", "zgoda-rodo", "naroznik", "krawedz", "kolor", "kolor-symbol", "rodzaj", "grubosc", DOSTAWA];
   const form = document.getElementById(formId);
   
   function buildLeftTable() {
@@ -104,7 +104,7 @@
           }
         }
       });
-      !isFromCalculator && switchToLockedForm(form);
+      if (!isFromCalculator) switchToLockedForm(form);
       return true;
     }
     return false;
@@ -114,7 +114,7 @@
     const data = getFormData();
     const entries = getFormEntries(data);
     const notEmptyEntries = {};
-    for (entry in entries) {
+    for (const entry in entries) {
       if (entries[entry] !== "") {
         notEmptyEntries[entry] = entries[entry];
       }
@@ -143,7 +143,7 @@
     if (validateForm(data)) {
       const entries = getFormEntries(data);
       let queriesString = "?";
-      for (entry in entries) {
+      for (const entry in entries) {
         if (entries[entry] !== "") {
           queriesString += entry + "=" + entries[entry] + "&";
         }
@@ -252,10 +252,12 @@
     });
     form.addEventListener("change", saveFormInLocalStorage);
     const resetFormButton = document.getElementById("reset-form-button");
-    resetFormButton && resetFormButton.addEventListener("click", function(e) {
-      e.preventDefault();
-      showModal("reset-form-warning")
-    });
+    if (resetFormButton) {
+      resetFormButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        showModal("reset-form-warning")
+      });
+    }
     const confirmResetFormButton = document.getElementById("confirm-form-reset");
     confirmResetFormButton.addEventListener("click", resetForm);
   }
@@ -263,7 +265,7 @@
   (function start() {
     buildLeftTable();
     const isRecoveredFromQueryParams = recoverFromQueryParams();
-    !isRecoveredFromQueryParams && checkForDataInLocalStorage();
+    if (!isRecoveredFromQueryParams) checkForDataInLocalStorage();
     setEventListeners();
     addZoomButtons();
   })();

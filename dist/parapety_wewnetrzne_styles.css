@@ -227,6 +227,9 @@ textarea.control-cell {
   height: 12mm;
   border: none;
 }
+.orderer td:first-of-type {
+  padding: 0 0.2rem;
+}
 .orderer td label{
   display: flex;
   align-items: center;
@@ -236,6 +239,26 @@ textarea.control-cell {
 .orderer td sup {
   font-size: 10px;
   color: var(--text-color-warning)
+}
+
+.rodo-consent-container {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+}
+.rodo-consent {
+  margin: 0 6px 0 12px;
+  width: 20px;
+  height: 20px;
+}
+input[type="checkbox"].rodo-consent.required-field-error:after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: var(--bg-error-color);
+  border: 1px solid var(--text-color-warning);
+  border-radius: 3px;
 }
 
 .one-digit-input {
@@ -299,6 +322,7 @@ textarea.control-cell {
 .align-right { text-align: right; }
 .display-inline { display: inline; }
 .display-flex { display: flex; }
+.items-center { align-items: center; }
 .justify-between { justify-content: space-between; }
 .justify-center { justify-content: center; }
 .justify-end { justify-content: flex-end; }
