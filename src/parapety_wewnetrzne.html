@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FORMULARZ NA PARAPETY WEWNĘTRZNE MDF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="icon" href="./favicon.png">
-  <link rel="stylesheet" href="./normalize.css">
-  <link rel="stylesheet" href="./parapety_wewnetrzne_styles.css">
+  <link rel="stylesheet" href="./normalize.css" type="text/css">
+  <link rel="stylesheet" href="./parapety_wewnetrzne_styles.css" type="text/css">
 </head>
 <body>
   <section class="page-a4">
@@ -50,7 +53,7 @@
                   <option value="R50">R50</option>
                 </select>
               </td>
-              <td class="title-cell w-18proc">
+              <td class="title-cell w-17proc">
                 <label for="rodzaj">RODZAJ I GRUBOŚĆ</label>
               </td>
               <td class="col-3">
@@ -62,7 +65,7 @@
                   </select>
                 </div>
               </td>
-              <td class="add-caret-icon w-7proc">
+              <td class="add-caret-icon w-8proc">
                 <div>
                   <select id="grubosc" name="grubosc" class="control-cell narrow-selector text-md">
                     <option value=""></option>
@@ -156,9 +159,10 @@
                     <label for="dodatkowe"><strong>MIEJSCE NA DODATKOWE INFORMACJE</strong></label>
                   </td>
                 </tr>
-                <tr class="textarea">
-                  <td colspan="8" class="border-none p-0">
-                    <textarea class="control-cell h-full" rows="9" name="dodatkowe" id="dodatkowe" aria-label="Dodatkowe informacje"></textarea>
+                <tr>
+                  <td colspan="8" class="dodatkowe-komorka border-none p-0">
+                    <textarea class="control-cell h-full" rows="2" name="dodatkowe" id="dodatkowe" aria-label="Dodatkowe informacje"></textarea>
+                    <label for="powierzchnia">Suma powierzchni elementów:<input type="text" name="powierzchnia" id="powierzchnia" class="col-4 pointer-events-none" value="" readonly></label>
                   </td>
                 </tr>
               </tbody>
@@ -196,6 +200,15 @@
                 <td><label for="telefon">Nr tel.<sup>*</sup></label></td>
                 <td>
                   <input id="telefon" name="telefon" class="control-cell" type="number" required>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="rodo-consent-container">
+                    <label><span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celach związanych z realizacją zamówienia.<sup>*</sup></span>
+                      <input type="checkbox" id="zgoda-rodo" name="zgoda-rodo" class="rodo-consent">
+                    </label>
+                  </div>
                 </td>
               </tr>
             </table>
@@ -263,10 +276,10 @@
     <tr>
       <td class="row-number-cell text-bold text-sm align-center h-7mm"></td>
       <td>
-        <input id="dlugosc-column" class="control-cell" type="number" min="5" max="1200" aria-describedby="dlugosc-label">
+        <input id="dlugosc-column" class="control-cell" type="number" min="300" max="3650" aria-describedby="dlugosc-label">
       </td>
       <td>
-        <input id="szerokosc-column" class="control-cell" type="number" min="5" max="1200" aria-describedby="szerokosc-label">
+        <input id="szerokosc-column" class="control-cell" type="number" min="100" max="1200" aria-describedby="szerokosc-label">
       </td>
       <td>
         <input id="ilosc-column" class="control-cell" type="number" min="0" max="500" aria-describedby="ilosc-label">

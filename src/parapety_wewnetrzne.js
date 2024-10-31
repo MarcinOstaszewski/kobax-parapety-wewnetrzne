@@ -1,7 +1,8 @@
 (function init() {
   const formId = "parapety-wewnetrzne";
   const DOSTAWA = "dostawa";
-  const requiredFieldIds = ["nazwa", "adres", "email", "telefon", "naroznik", "krawedz", "kolor", "kolor-symbol", "rodzaj", "grubosc", DOSTAWA];
+  const requiredFieldIds = ["nazwa", "adres", "email", "telefon", "zgoda-rodo", "naroznik", "krawedz", "kolor", "kolor-symbol", "rodzaj", "grubosc", DOSTAWA];
+  const recountSurfaceFields = ["dlugosc", "szerokosc", "ilosc"];
   const form = document.getElementById(formId);
   
   function buildLeftTable() {
@@ -104,7 +105,7 @@
           }
         }
       });
-      !isFromCalculator && switchToLockedForm(form);
+      if (!isFromCalculator) switchToLockedForm(form);
       return true;
     }
     return false;
@@ -114,7 +115,7 @@
     const data = getFormData();
     const entries = getFormEntries(data);
     const notEmptyEntries = {};
-    for (entry in entries) {
+    for (const entry in entries) {
       if (entries[entry] !== "") {
         notEmptyEntries[entry] = entries[entry];
       }
@@ -143,7 +144,7 @@
     if (validateForm(data)) {
       const entries = getFormEntries(data);
       let queriesString = "?";
-      for (entry in entries) {
+      for (const entry in entries) {
         if (entries[entry] !== "") {
           queriesString += entry + "=" + entries[entry] + "&";
         }
@@ -229,6 +230,20 @@
     flashElementBackground(id);
   }
 
+  function recountSurface() {
+    let surface = 0;
+    for (let i = 1; i <= 20; i++) {
+      const length = document.getElementById("dlugosc-row-" + i).value;
+      const width = document.getElementById("szerokosc-row-" + i).value;
+      const quantity = document.getElementById("ilosc-row-" + i).value;
+      if (length && width && quantity) {
+        surface += length * width * quantity;
+      }
+    }
+    document.getElementById("powierzchnia").value = (surface / 1000000).toFixed(3) + " m²";
+    flashElementBackground("powierzchnia");
+  }
+
   function setEventListeners() {
     const kindSelect = document.getElementById("rodzaj");
     kindSelect.addEventListener("change", function(event) {
@@ -238,6 +253,12 @@
     const cornerSelect = document.getElementById("naroznik");
     cornerSelect.addEventListener("change", function(event) {
       if (event.target.value === "STONE") { setElementToValueAndFlash("krawedz", "faza")};
+    });
+    recountSurfaceFields.forEach(function(fieldId) {
+      for (let i = 1; i <= 20; i++) {
+        const field = document.getElementById(fieldId + "-row-" + i);
+        field.addEventListener("change", recountSurface);
+      }
     });
     requiredFieldIds.forEach(function(entry) {
       const element = document.querySelector("[name=" + entry + "]");
@@ -252,10 +273,12 @@
     });
     form.addEventListener("change", saveFormInLocalStorage);
     const resetFormButton = document.getElementById("reset-form-button");
-    resetFormButton && resetFormButton.addEventListener("click", function(e) {
-      e.preventDefault();
-      showModal("reset-form-warning")
-    });
+    if (resetFormButton) {
+      resetFormButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        showModal("reset-form-warning")
+      });
+    }
     const confirmResetFormButton = document.getElementById("confirm-form-reset");
     confirmResetFormButton.addEventListener("click", resetForm);
   }
@@ -263,7 +286,7 @@
   (function start() {
     buildLeftTable();
     const isRecoveredFromQueryParams = recoverFromQueryParams();
-    !isRecoveredFromQueryParams && checkForDataInLocalStorage();
+    if (!isRecoveredFromQueryParams) checkForDataInLocalStorage();
     setEventListeners();
     addZoomButtons();
   })();
