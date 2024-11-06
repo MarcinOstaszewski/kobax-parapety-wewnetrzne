@@ -1,3 +1,4 @@
+<!--<Deject>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,9 @@
   <link rel="stylesheet" href="./parapety_wewnetrzne_styles.css" type="text/css">
 </head>
 <body>
+<!--</Deject>-->
   <section class="page-a4">
+    <!-- inject:styles -->
     <header>
       <div class="info-by-receiver pointer-events-none">
         <label for="date-of-receive">Data przyjęcia:</label>
@@ -32,7 +35,7 @@
             <button id="zoom-in" class="form-button text-xs mr-05">Powiększ (+)</button>
             <button id="zoom-out" class="form-button text-xs"no-print >Pomniejsz (-)</button>
           </div>
-          <div class="text-sm">( wypełnia przyjmujący zamówienie )</div>
+          <div class="text-normal text-xs">- - - ( wypełnia przyjmujący zamówienie ) - - -</div>
         </h4>
       </div>
     </header>
@@ -139,17 +142,17 @@
         </section>
 
         <section class="display-flex gap-075 col-12">
-          <div class="central-table-left-container display-flex border-bold col-6"></div>
+          <div class="central-table-left-container display-flex col-6"></div>
           <div class="flex-column gap-075 col-6">
             <div class="right-container border-bold flex-column align-center p-03">
               <strong>NAROŻNIKI</strong>
-              <img src="assets/narozniki.png" alt="Narożniki do wyboru" class="col-10 mx-auto my-05">
+              <img src="assets/narozniki.png" alt="Narożniki do wyboru" class="col-10 mx-auto my-md">
               <small><i>* narożnik STONE występuje wyłącznie w krawędzi FAZA</i></small>
             </div>
 
             <div class="right-container border-bold flex-column align-center p-03">
               <strong>KRAWĘDZIE</strong>
-              <img src="assets/krawedzie.png" alt="Krawędzie do wyboru" class="col-10 mx-auto my-05">
+              <img src="assets/krawedzie.png" alt="Krawędzie do wyboru" class="col-10 mx-auto my-md">
             </div>
 
             <table class="col-12 border-bold">
@@ -160,7 +163,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="8" class="dodatkowe-komorka border-none p-0">
+                  <td class="dodatkowe-komorka border-none p-0">
                     <textarea class="control-cell h-full" rows="2" name="dodatkowe" id="dodatkowe" aria-label="Dodatkowe informacje"></textarea>
                     <label for="powierzchnia">Suma powierzchni elementów:<input type="text" name="powierzchnia" id="powierzchnia" class="col-4 pointer-events-none" value="" readonly></label>
                   </td>
@@ -179,7 +182,7 @@
                 </td>
               </tr>
               <tr>
-                <td><label for="adres">Adres<sup>*</sup></label></td>
+                <td><label for="adres">Adres<sup>&nbsp;*</sup></label></td>
                 <td>
                   <textarea id="adres" name="adres" class="control-cell" type="text" required rows="5"></textarea>
                 </td>
@@ -191,13 +194,13 @@
                 </td>
               </tr>
               <tr>
-                <td><label for="email">E-mail<sup>*</sup></label></td>
+                <td><label for="email">E-mail<sup>&nbsp;*</sup></label></td>
                 <td>
                   <input id="email" name="email" class="control-cell" type="email" required>
                 </td>
               </tr>
               <tr>
-                <td><label for="telefon">Nr tel.<sup>*</sup></label></td>
+                <td><label for="telefon">Nr tel.<sup>&nbsp;*</sup></label></td>
                 <td>
                   <input id="telefon" name="telefon" class="control-cell" type="number" required>
                 </td>
@@ -225,29 +228,31 @@
       <div class="signatures display-flex justify-between align-bottom">
         <div class="flex-column align-center">
           <input id="orderer-signature" name="orderer-signature" class="control-cell bottom-dotted" type="text">
-          <small>( podpis zamawiającego )</small>
+          <span class="text-sm">( podpis zamawiającego )</span>
         </div>
-        <button id="print-page" name="print-page" class="form-button no-print">WYDRUKUJ</button>
-        <button id="send-order" name="send-order" class="form-button no-print" type="submit">WYŚLIJ</button>
+        <button id="print-page" name="print-page" class="form-button default-button no-print">WYDRUKUJ</button>
+        <button id="send-order" name="send-order" class="form-button default-button no-print" type="submit">WYŚLIJ</button>
         <div class="flex-column align-center">
           <input id="receipient-signature" name="receipient-signature" class="control-cell bottom-dotted pointer-events-none" type="text">
-          <small>( podpis przyjmującego )</small>
+          <span class="text-sm">( podpis przyjmującego )</span>
         </div>
       </div>
       <div class="footnotes">
         <div>
           <div class="display-flex justify-between">
-            <small>Za błędne wypełnienie formularza odpowiedzialność ponosi zamawiający</small><br />
-            <small><sup>*</sup>pola obowiązkowe do uzupełnienia</small>
+            <div class="flex-column">
+              <small>Za błędne wypełnienie formularza odpowiedzialność ponosi zamawiający</small>
+              <small>Złożenie zamówienia jest równoznaczne z zapoznaniem się z warunkami gwarancji i reklamacji firmy KOBAX</small>
+            </div>
+            <small><sup>*</sup> pola obowiązkowe do uzupełnienia</small>
           </div>
-          <small>Złożenie zamówienia jest równoznaczne z zapoznaniem się z warunkami gwarancji i reklamacji firmy KOBAX</small>
         </div>
-        <div class="display-flex justify-between align-center mt-05 ">
-          <div class="align-center col-12">
-            <small>Zakład Handlowo-Produkcyjny „KOBAX” Pająk Krzysztof | Zebrzydowice 289A, 34-130 Kalwaria Zebrzydowska</small><br />
+        <div class="display-flex justify-between align-center mt-03">
+          <div class="align-center flex-column col-12">
+            <small>Zakład Handlowo-Produkcyjny „KOBAX” Pająk Krzysztof | Zebrzydowice 289A, 34-130 Kalwaria Zebrzydowska</small>
             <small>NIP 551-000-42-29 | <a href="mailto:zakupy@kobax.pl" >zakupy@kobax.pl</a> | <a href="www.kobax.pl">www.kobax.pl</a> | tel. +48 33 876 70 83, +48 604 152 240</small>
           </div>
-          <div class="display-flex">
+          <div>
             <div class="display-flex">
               <input type="text" class="control-cell one-digit-input border-bold">
               <input type="text" class="control-cell one-digit-input border-bold">
@@ -259,14 +264,14 @@
   </section>
 
   <template id="central-table-header">
-    <table id="central-table" class="col-12">
+    <table id="central-table" class="border-bold col-12">
       <thead>
         <tr class="title-cell text-sm">
           <th class="h-7mm">Lp.</th>
           <th>DŁUGOŚĆ</th>
           <th>SZEROKOŚĆ</th>
           <th class="w-9mm">SZT.</th>
-          <th>KSZTAŁT</th>
+          <th class="w-50__mm">KSZTAŁT</th>
         </tr>
       </thead>
     </table>
@@ -306,7 +311,7 @@
     <div class="dialog-content align-center">
       <strong class="dialog-info">Prosimy o wypełnienie wszystkich wymaganych pól.</strong>
       <p>Pola wymagane zostały zaznaczone kolorem czerwonym.</p>
-      <button class="form-button">OK</button>
+      <button class="form-button default-button">OK</button>
     </div>
   </dialog>
 
@@ -317,8 +322,10 @@
       <button id="confirm-form-reset" class="form-button reset-button">WYCZYŚĆ</button>
     </div>
   </dialog>
-
-  <script src="./parapety_wewnetrzne.js"></script>
+  
+  <!-- inject:scripts -->
+<!--<Deject>-->
+<script src="./parapety_wewnetrzne.js"></script>
 </body>
 </html>
-
+<!--</Deject>-->

@@ -85,15 +85,21 @@
     let isFromCalculator = false;
     if (queries.size) {
       queries.forEach(function(value, key) {
-        if (key === "kalkulator" && value === "true") {
-          isFromCalculator = true;
+        if (key === "kalkulator") {
+          if (value === "true") {
+            isFromCalculator = true;
+          }
         }
         if (key === "rodzaj") {
          changeThicknessOptions(value, "grubosc");
         }
-        if (key === "rabat" && !isNaN(value) && value > 0) {
-          key = "dodatkowe";
-          value = "rabat: " + value + "%";
+        if (key === "rabat") {
+          if (!isNaN(value)) {
+            if (value > 0) {
+              key = "dodatkowe";
+              value = "rabat: " + value + "%";
+            }
+          }
         }
         const element = form.querySelector("[name=" + key + "]");
         if (element) {
@@ -236,8 +242,12 @@
       const length = document.getElementById("dlugosc-row-" + i).value;
       const width = document.getElementById("szerokosc-row-" + i).value;
       const quantity = document.getElementById("ilosc-row-" + i).value;
-      if (length && width && quantity) {
-        surface += length * width * quantity;
+      if (length) {
+        if (width) {
+          if (quantity) {
+            surface += length * width * quantity;
+          }
+        }
       }
     }
     document.getElementById("powierzchnia").value = (surface / 1000000).toFixed(3) + " m²";
