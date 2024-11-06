@@ -38,7 +38,7 @@ export function addElementToOrder() {
       const m2Index = queriesString.indexOf('m²');
       queriesString = queriesString.substring(0, powierzchniaIndex) + queriesString.substring(m2Index + 2);
       console.log('queriesString', queriesString);
-      const [s, q, d] = updateValues({dlugosc, szerokosc, ilosc, surface, queriesString, dodatkowe});
+      const {s, q, d} = updateValues({dlugosc, szerokosc, ilosc, surface, queriesString, dodatkowe});
       surface = s as number;
       queriesString = q as string;
       dodatkowe = d as string;

@@ -58,12 +58,27 @@ export function toggleOrderButtons(isValid: boolean) {
   addElementButton.disabled = !isValid || !isSameKind;
 };
 
+function openLockedInfoDialog() {
+  const dialog: HTMLDialogElement | null = document.getElementById('odblokuj-ponizej') as HTMLDialogElement;
+  if (!dialog) return;
+  dialog.showModal();
+  dialog.addEventListener('click', function() { dialog.close() });
+}
+
 export function toggleTopPanelLock() {
   const isSameKind = isSameKindOrder();
   topPanelFields.forEach(function(fieldOrList) {
     const field = (fieldOrList instanceof NodeList) ? fieldOrList[0] : fieldOrList;
     const formGroup: HTMLElement = field.closest('.form-group');
-    if (formGroup) formGroup.classList.toggle('locked', isSameKind);
+    if (formGroup) {
+      formGroup.classList.toggle('locked', isSameKind);
+      if (isSameKind) {
+        formGroup.addEventListener('click', openLockedInfoDialog);
+      } else {
+        formGroup.removeEventListener('click', openLockedInfoDialog);
+      }
+    };
+
   });
 }
 
@@ -98,7 +113,6 @@ export function updateValues(
   { surface: number, queriesString: string, dodatkowe: string, dlugosc: number, szerokosc: number, ilosc: number }
 ) {
   surface += dlugosc * szerokosc * ilosc / 100;
-  queriesString += 'powierzchnia=' + surface + '&';
-  dodatkowe += ('Powierzchnia zamówienia wynosi: ' + (surface / 10000).toFixed(3) + ' m²').replace('.', ',');
-  return [surface, queriesString, dodatkowe];
+  queriesString += 'powierzchnia=' + (surface / 10000).toFixed(3) + ' m²&';
+  return {s: surface, q: queriesString, d: dodatkowe};
 }

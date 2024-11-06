@@ -47,7 +47,7 @@ export function isDiscountValid(clientKind: typeof clientKinds) {
   return clientKind as unknown as string === clientKinds.hurtowy && parseFloat(rabatInput.value) > 0;
 }
 
-export function verifyMaxValue() {
+export function verifyMinMaxValue() {
   if (parseInt(this.value) > this.max) this.value = this.max;
   if (parseInt(this.value) < this.min) this.value = this.min;
   saveToLocalStorageAndUpdateDisplay();

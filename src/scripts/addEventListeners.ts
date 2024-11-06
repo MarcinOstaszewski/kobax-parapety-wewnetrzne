@@ -4,7 +4,7 @@ import { setDiscountValue } from "../scripts/setDiscountValue";
 import { rabatInput, rodzaj, naroznik, grubosc, kolor, zamowienie, krawedz, ksztalt, addOrderButton, addElementButton } from "../consts/consts-ui-elements";
 import { checkIfStoneSelected } from "../utils/utils-ui-updates";
 import { showHideGruboscOptions } from "./showHideGruboscOptions";
-import { verifyMaxValue } from "../utils/utils";
+import { verifyMinMaxValue } from "../utils/utils";
 import { saveToLocalStorageAndUpdateDisplay } from "./saveToLocalStorageAndUpdateDisplay";
 import { addNewOrderToList } from "./addNewOrderToList";
 import { addElementToOrder } from "./addElementToOrder";
@@ -26,7 +26,7 @@ export function addEventListeners() {
   addListenerToRadios(rodzaj, 'change', function(event) { showHideGruboscOptions((event.target as HTMLInputElement).value as rodzajMapping); });
   addListenerToRadios(naroznik, 'change', checkIfStoneSelected);
   [grubosc, kolor, zamowienie, krawedz, ksztalt].forEach(function(radios) { addListenerToRadios(radios, 'change', saveToLocalStorageAndUpdateDisplay )});
-  ['szerokosc', 'dlugosc', 'ilosc'].forEach(function(id) { document.getElementById(id)!.addEventListener('change', function() { verifyMaxValue.call(this); }); });
+  ['szerokosc', 'dlugosc', 'ilosc'].forEach(function(id) { document.getElementById(id)!.addEventListener('change', function() { verifyMinMaxValue.call(this); }); });
   addOrderButton.addEventListener('click', function() { addNewOrderToList() });
   addElementButton.addEventListener('click', addElementToOrder);
 }

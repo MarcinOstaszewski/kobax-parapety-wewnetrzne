@@ -76,6 +76,7 @@
 
     &.make-order {
       background-color: var(--info-color);
+      text-align: center;
     }
 
     &.remove-order {
@@ -89,4 +90,5 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 80px;
 }

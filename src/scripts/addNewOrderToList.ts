@@ -33,7 +33,7 @@ export function addNewOrderToList(type: keyof typeof orderTypes = orderTypes.nor
     }
   }
   if (dlugosc && szerokosc && ilosc) {
-    const [s, q, d] = updateValues({dlugosc, szerokosc, ilosc, surface, queriesString, dodatkowe});
+    const {s, q, d} = updateValues({dlugosc, szerokosc, ilosc, surface, queriesString, dodatkowe});
     surface = s as number;
     queriesString = q as string;
     dodatkowe = d as string;

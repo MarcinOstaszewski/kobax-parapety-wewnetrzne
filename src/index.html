@@ -148,18 +148,18 @@
 
       <div class="form-group">
         <label for="dlugosc">Długość (mm):</label>
-        <input type="number" id="dlugosc" name="dlugosc" min="200" max="3000"class="width-narrow">
+        <input type="number" id="dlugosc" name="dlugosc" min="300" max="3650"class="width-narrow">
         <div class="position-relative">
-          <img src="assets/wymiary.webp" alt="Wymiary" class="img-dimensions" />
+          <img src="assets/wymiary.webp" alt="Wymiary" class="img-dimensions"/>
         </div>
       </div>
       <div class="form-group">
         <label for="szerokosc">Szerokość (mm):</label>
-        <input type="number" id="szerokosc" name="szerokosc" min="100" max="2000" class="width-narrow">
+        <input type="number" id="szerokosc" name="szerokosc" min="100" max="1200" class="width-narrow">
       </div>
       <div class="form-group">
         <label for="ilosc">Ilość sztuk:</label>
-        <input type="number" id="ilosc" name="ilosc" value="1" min="1" max="100" class="width-very-narrow">
+        <input type="number" id="ilosc" name="ilosc" value="1" min="1" max="500" class="width-very-narrow">
       </div>
       <div class="form-group">
         <label for="ksztalt">Kształt</label>
@@ -260,6 +260,13 @@
     <div class="dialog-content">
       <h2>Usunąć zamówienie z listy?</h2>
       <button class="confirm-order-remove-button">Usuń</button>
+    </div>
+  </dialog>
+
+  <dialog id="odblokuj-ponizej">
+    <div class="dialog-content">
+      <h4>Aby odblokować te pola, wybierz:</h4>
+      <h3>Złóż zamówienie: ◉ nowe</h3>
     </div>
   </dialog>
 

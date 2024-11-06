@@ -37,6 +37,17 @@ h3 {
   font-size: 18px;
 }
 
+h4 {
+  margin: 0 0 1rem 0;
+  font-size: 16px;
+}
+
+h5 {
+  margin: 0.2rem;
+  font-size: 14px;
+  font-weight: normal;
+}
+
 main {
   width: calc(100% - 10px);
   min-width: var(--min-page-width);
