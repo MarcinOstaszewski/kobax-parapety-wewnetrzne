@@ -80,6 +80,13 @@
     });
   }
 
+  function hideVisibleOnHover() {
+    console.log("Hiding visible on hover");
+    document.querySelectorAll(".visible-on-hover").forEach(function(el) {
+      el.classList.add("hidden");
+    });
+  }
+
   function recoverFromQueryParams() {
     const queries = new URLSearchParams(window.location.search);
     let isFromCalculator = false;
@@ -111,7 +118,10 @@
           }
         }
       });
-      if (!isFromCalculator) switchToLockedForm(form);
+      if (!isFromCalculator) {
+        switchToLockedForm(form);
+        hideVisibleOnHover();
+      }
       return true;
     }
     return false;
