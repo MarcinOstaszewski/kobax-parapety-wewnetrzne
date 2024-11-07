@@ -40,14 +40,34 @@ select::-ms-expand {
 }
 
 .page-a4 {
+  font-family: 'Arimo', Arial, sans-serif;
   color: var(--kbx-text-color);
-  padding: 0.5rem;
-  max-width: 20.5cm;
+  padding: 0 0.1rem;
+  max-width: 21cm;
   margin: 0 auto;
 }
 
 header {
+  position: relative;
   margin-bottom: 0.25rem
+}
+header .visible-on-hover {
+  position: absolute;
+  display: block;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  font-size: 20px;
+  text-align: center;
+  align-content: center;
+  transition: opacity 0.5s;
+  background-color: var(--kbx-white-color);
+}
+header:hover .visible-on-hover {
+  opacity: 0.9;
+  transition: opacity 0.5s;
 }
 
 .info-by-receiver {

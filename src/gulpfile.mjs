@@ -1,7 +1,7 @@
 'use strict'
 
 // DLA FORMULARZA PARAPETY WEWNETRZNE
-import gulp, {src, dest, parallel } from 'gulp';
+import gulp, {src, dest, series } from 'gulp';
 import cleanCSS from 'gulp-clean-css';
 import concat from 'gulp-concat';
 import replace from 'gulp-replace';
@@ -41,7 +41,7 @@ gulp.task('scripts', () => {
     .pipe(dest(config.destJS));
 });
 
-gulp.task('inject-inline-css-js-remove-start-end', () => {
+gulp.task('inject-inline-css-js-remove-body-tags', () => {
   const cssContent = fs.readFileSync(`${config.destCSS}/styles.min.css`, 'utf8');
   const jsContent = fs.readFileSync(`${config.destJS}/scripts.min.js`, 'utf8');
   return src('./parapety_wewnetrzne.html')
@@ -49,11 +49,11 @@ gulp.task('inject-inline-css-js-remove-start-end', () => {
     .pipe(injectString.replace(config.inject.css, `<style>${cssContent}</style>`)) // styles inlined
     .pipe(injectString.replace(config.inject.js, `<script>${jsContent}</script>`)) // scripts inlined
     .pipe(gulpRemoveHtml())
-    .pipe(dest('../../dest_formularz_parapety'));
+    .pipe(dest(config.destDir));
 });
 
-gulp.task('default', parallel(
+gulp.task('default', series(
   'styles',
   'scripts',
-  'inject-inline-css-js-remove-start-end',
+  'inject-inline-css-js-remove-body-tags',
 ));
