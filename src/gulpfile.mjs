@@ -11,11 +11,11 @@ import gulpRemoveHtml from 'gulp-remove-html';
 import fs from 'fs';
 
 const config = {
-  destDir: '../../dest_formularz_parapety',
+  destDir: '../dist',
   cssFiles: ['./normalize.css', './parapety_wewnetrzne_styles.css'],
   jsFiles: './parapety_wewnetrzne.js',
-  destCSS: '../../dest_formularz_parapety/css',
-  destJS: '../../dest_formularz_parapety/js',
+  destCSS: '../dist/out-formularz',
+  destJS: '../dist/out-formularz',
   replace: {
     from: /assets/g,
     to: 'https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11'
@@ -49,6 +49,7 @@ gulp.task('inject-inline-css-js-remove-body-tags', () => {
     .pipe(injectString.replace(config.inject.css, `<style>${cssContent}</style>`)) // styles inlined
     .pipe(injectString.replace(config.inject.js, `<script>${jsContent}</script>`)) // scripts inlined
     .pipe(gulpRemoveHtml())
+    .pipe(rename('parapety_wewnetrzne__kod_WordPress.html'))
     .pipe(dest(config.destDir));
 });
 
