@@ -1,3 +1,4 @@
+<!--<Deject>-->
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -10,7 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 </head>
 <body>
+<!--</Deject>-->
+<div class="calculator-main">
   <main>
+    <!-- inject:styles -->
     <section class="title-section">
       <h1>Kalkulator parapetów wewnętrznych</h1>
       <p><label>Dostępność: </label><strong>Produkt na zamówienie</strong></p>
@@ -254,21 +258,24 @@
         </div>
       </div>
     </form>
+    
+    <dialog id="potwierdz-usuniecie">
+      <div class="dialog-content">
+        <h2>Usunąć zamówienie z listy?</h2>
+        <button class="confirm-order-remove-button">Usuń</button>
+      </div>
+    </dialog>
+    
+    <dialog id="odblokuj-ponizej">
+      <div class="dialog-content">
+        <h4>Aby odblokować te pola, wybierz:</h4>
+        <h3>Złóż zamówienie: ◉ nowe</h3>
+      </div>
+    </dialog>
+    <!-- inject:scripts -->
   </main>
-
-  <dialog id="potwierdz-usuniecie">
-    <div class="dialog-content">
-      <h2>Usunąć zamówienie z listy?</h2>
-      <button class="confirm-order-remove-button">Usuń</button>
-    </div>
-  </dialog>
-
-  <dialog id="odblokuj-ponizej">
-    <div class="dialog-content">
-      <h4>Aby odblokować te pola, wybierz:</h4>
-      <h3>Złóż zamówienie: ◉ nowe</h3>
-    </div>
-  </dialog>
-
+</div>
+<!--<Deject>-->
 </body>
 </html>
+<!--</Deject>-->
