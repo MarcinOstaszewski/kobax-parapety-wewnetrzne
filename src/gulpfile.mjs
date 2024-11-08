@@ -13,6 +13,8 @@ import fs from 'fs';
 const config = {
   destDir: '../dest',
   cssFiles: ['./normalize.css', './parapety_wewnetrzne_styles.css'],
+  srcHtml: './parapety-wewnetrzne.html',
+  destHtml: 'parapety_wewnetrzne__kod_WordPress.html',
   jsFiles: './parapety_wewnetrzne.js',
   destCSS: '../dest/out-formularz',
   destJS: '../dest/out-formularz',
@@ -44,12 +46,12 @@ gulp.task('scripts', () => {
 gulp.task('inject-inline-css-js-remove-body-tags', () => {
   const cssContent = fs.readFileSync(`${config.destCSS}/styles.min.css`, 'utf8');
   const jsContent = fs.readFileSync(`${config.destJS}/scripts.min.js`, 'utf8');
-  return src('./parapety_wewnetrzne.html')
+  return src(config.srcHtml)
     .pipe(replace(config.replace.from, config.replace.to)) // paths to images
     .pipe(injectString.replace(config.inject.css, `<style>${cssContent}</style>`)) // styles inlined
     .pipe(injectString.replace(config.inject.js, `<script>${jsContent}</script>`)) // scripts inlined
     .pipe(gulpRemoveHtml())
-    .pipe(rename('parapety_wewnetrzne__kod_WordPress.html'))
+    .pipe(rename(config.destHtml))
     .pipe(dest(config.destDir));
 });
 

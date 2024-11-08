@@ -1,4 +1,4 @@
- html {
+html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -99,6 +99,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
+  appearance: button;
   -webkit-appearance: button;
 }
 
@@ -150,6 +151,7 @@ textarea {
 }
 
 [type="search"] {
+  appearance: textfield;
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
