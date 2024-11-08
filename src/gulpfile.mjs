@@ -11,11 +11,11 @@ import gulpRemoveHtml from 'gulp-remove-html';
 import fs from 'fs';
 
 const config = {
-  destDir: '../dist',
+  destDir: '../dest',
   cssFiles: ['./normalize.css', './parapety_wewnetrzne_styles.css'],
   jsFiles: './parapety_wewnetrzne.js',
-  destCSS: '../dist/out-formularz',
-  destJS: '../dist/out-formularz',
+  destCSS: '../dest/out-formularz',
+  destJS: '../dest/out-formularz',
   replace: {
     from: /assets/g,
     to: 'https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11'
