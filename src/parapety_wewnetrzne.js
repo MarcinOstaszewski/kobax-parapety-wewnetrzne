@@ -88,10 +88,11 @@
   }
 
   function recoverFromQueryParams() {
-    const queries = new URLSearchParams(window.location.search);
+    const queries = new URLSearchParams(window.location.search)
     let isFromCalculator = false;
     if (queries.size) {
       queries.forEach(function(value, key) {
+        value = value.replace(/%20/g, " ").replace(/%0A/g, "\n").replace(/%0D/g, "\r");
         if (key === "kalkulator") {
           if (value === "true") {
             isFromCalculator = true;
@@ -165,7 +166,11 @@
           queriesString += entry + "=" + entries[entry] + "&";
         }
       }
-      window.location.href = "mailto:zakupy@kobax.pl?subject=zlecenie&body=" + window.location.href + queriesString;
+      queriesString = queriesString.replace(/ /g, "%20").replace(/\n/g, "%0A").replace(/\r/g, "%0D");
+      const emailAddress = 'zakupy@kobax.pl';
+      const subject = "Formularz zamówienia parapetów wewnętrznych MDF";
+      const body = encodeURIComponent(window.location.href + queriesString);
+      window.location.href = "mailto:" + emailAddress + "?subject=" + subject + "&body=" + body;
     } else {
       showModal("invalid-form-warning");
     }
