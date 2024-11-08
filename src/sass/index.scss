@@ -1,7 +1,7 @@
-@import '../normalize.css';
-@import './variables.scss';
-@import './general.scss';
-@import './components.scss';
+@use '../normalize.css';
+@use './variables.scss';
+@use './general.scss';
+@use './components.scss';
 
 dialog {
   width: 400px;

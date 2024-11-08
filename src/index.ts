@@ -3,8 +3,7 @@ import { checkForDataInLocalStorage } from './scripts/checkForDataInLocalStorage
 import { showOrdersListFromLocalStorage } from './scripts/showOrdersListFromLocalStorage';
 import { showHideHurtRabat } from './utils/utils-ui-updates';
 import { showHideGruboscOptions } from './scripts/showHideGruboscOptions';
-import "./index.css";
-
+// import "./index.css";
 const state = {
   rabat: 1
 }

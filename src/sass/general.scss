@@ -9,6 +9,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
+  line-height: 1.45;
 }
 
 p {
@@ -16,9 +17,11 @@ p {
   line-height: 20px;
 }
 
-h1, h2, h3 {
-  margin: 0;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Arimo", Arial, sans-serif;
   color: var(--main-color);
+  font-weight: 700;
+  margin: 0;
 }
 
 h1 {
@@ -48,10 +51,12 @@ h5 {
   font-weight: normal;
 }
 
-main {
-  width: calc(100% - 10px);
+.calculator-main {
   min-width: var(--min-page-width);
   max-width: var(--max-page-width);
-  border-right: 1px solid var(--dark-grey-color);
+}
+
+main {
+  width: calc(100% - 10px);
   margin-bottom: 3rem;
 }
