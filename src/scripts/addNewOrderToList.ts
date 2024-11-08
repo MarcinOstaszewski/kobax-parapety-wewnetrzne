@@ -23,20 +23,21 @@ export function addNewOrderToList(type: keyof typeof orderTypes = orderTypes.nor
       if (entriesToAddRowNumber.includes(entry)) {
         value += '-row-' + 1;
       }
-      // if (entry === 'rabat' && data[entry] !== '0') {
-      //   dodatkowe += 'Rabat:' + data[entry] + '%& /n';
-      // }
       if (entry === 'dlugosc') dlugosc = parseFloat(data[entry] as string);
       if (entry === 'szerokosc') szerokosc = parseFloat(data[entry] as string);
       if (entry === 'ilosc') ilosc = parseFloat(data[entry] as string);
       queriesString += value + "=" + data[entry] + "&";
     }
   }
-  if (dlugosc && szerokosc && ilosc) {
-    const {s, q, d} = updateValues({dlugosc, szerokosc, ilosc, surface, queriesString, dodatkowe});
-    surface = s as number;
-    queriesString = q as string;
-    dodatkowe = d as string;
+  if (dlugosc) {
+    if (szerokosc) {
+      if (ilosc) {
+        const {s, q, d} = updateValues({dlugosc, szerokosc, ilosc, surface, queriesString, dodatkowe});
+        surface = s as number;
+        queriesString = q as string;
+        dodatkowe = d as string;
+      }
+    }
   }
 
   if (dodatkowe) {
