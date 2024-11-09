@@ -1,5 +1,5 @@
 import { getOrdersFromLocalStorage } from "../utils/utils";
-import { showOrdersListFromLocalStorage } from "./showOrdersListFromLocalStorage";
+import { showOrdersListFromLocalStorage } from "./";
 
 export function removeOrderFromLocalStorage(index: number) {
   const orders = getOrdersFromLocalStorage();

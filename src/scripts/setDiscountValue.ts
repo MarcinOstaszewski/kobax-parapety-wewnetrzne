@@ -1,7 +1,7 @@
 import { setRabat } from "..";
 import { rabatInput } from "../consts/consts-ui-elements";
 import { getKlientKind, isDiscountValid } from "../utils/utils";
-import { saveToLocalStorageAndUpdateDisplay } from "./saveToLocalStorageAndUpdateDisplay";
+import { saveToLocalStorageAndUpdateDisplay } from "./";
 
 export function setDiscountValue() {
   const clientKind = getKlientKind();

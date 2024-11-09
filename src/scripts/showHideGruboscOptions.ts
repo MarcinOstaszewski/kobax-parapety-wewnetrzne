@@ -1,7 +1,7 @@
 import { rodzajMapping } from "../consts/mappings";
 import { getRodzajValue } from "../utils/utils";
 import { flashGruboscGroup } from "../utils/utils-ui-updates";
-import { saveToLocalStorageAndUpdateDisplay } from "./saveToLocalStorageAndUpdateDisplay";
+import { saveToLocalStorageAndUpdateDisplay } from "./";
 
 export function showHideGruboscOptions(value?: rodzajMapping) {
   const isStandard = getRodzajValue() === rodzajMapping.standard;

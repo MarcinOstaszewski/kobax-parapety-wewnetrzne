@@ -1,14 +1,7 @@
-import { klientDetalHurt } from "../consts/consts-ui-elements";
-import { showHideHurtRabat } from "../utils/utils-ui-updates";
-import { setDiscountValue } from "../scripts/setDiscountValue";
-import { rabatInput, rodzaj, naroznik, grubosc, kolor, zamowienie, krawedz, ksztalt, addOrderButton, addElementButton } from "../consts/consts-ui-elements";
-import { checkIfStoneSelected } from "../utils/utils-ui-updates";
-import { showHideGruboscOptions } from "./showHideGruboscOptions";
-import { verifyMinMaxValue } from "../utils/utils";
-import { saveToLocalStorageAndUpdateDisplay } from "./saveToLocalStorageAndUpdateDisplay";
-import { addNewOrderToList } from "./addNewOrderToList";
-import { addElementToOrder } from "./addElementToOrder";
+import { klientDetalHurt, rabatInput, rodzaj, naroznik, grubosc, kolor, zamowienie, krawedz, ksztalt, addOrderButton, addElementButton } from "../consts/consts-ui-elements";
 import { rodzajMapping } from "../consts/mappings";
+import { checkIfStoneSelected, showHideHurtRabat } from "../utils/utils-ui-updates";
+import { setDiscountValue, showHideGruboscOptions, verifyMinMaxValue, saveToLocalStorageAndUpdateDisplay, addNewOrderToList, addElementToOrder } from "./";
 
 type addListenerToRadiosType = {
   (radios: NodeListOf<HTMLInputElement>, type: string, callback: EventListener): void;

@@ -1,7 +1,7 @@
 import { formId } from "../consts/consts";
 import { getFormData } from "../utils/utils";
 import { toggleTopPanelLock } from "../utils/utils-ui-updates";
-import { updateCurrentOrderDescription } from "./updateCurrentOrderDescription";
+import { updateCurrentOrderDescription } from "./";
 
 export function saveToLocalStorageAndUpdateDisplay() {
   const data = getFormData();

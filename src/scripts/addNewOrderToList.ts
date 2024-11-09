@@ -4,8 +4,7 @@ import { orderTypes } from "../consts/mappings";
 import { flashNewListElement, updateValues } from "../utils/utils-ui-updates";
 import { getFormData, getOrderURL } from "../utils/utils";
 import { partialFormReset, resetForm } from "../utils/utils-ui-updates";
-import { showOrdersListFromLocalStorage } from "./showOrdersListFromLocalStorage";
-import { addOrderToLocalStorage } from "./addOrdersToLocalStorage";
+import { showOrdersListFromLocalStorage, addOrderToLocalStorage } from "./";
 
 export function addNewOrderToList(type: keyof typeof orderTypes = orderTypes.normal) {
   const data = getFormData();
