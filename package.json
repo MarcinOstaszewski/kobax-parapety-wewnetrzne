@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp dev",
-    "build": "rollup -c",
-    "out": "rollup -c && gulp"
+    "build": "rollup -c && gulp"
   }
 }
