@@ -2,6 +2,7 @@ Aby stworzyć gotowy kod FORMULARZA PARAPETÓW MDF,
 do wklejenia w bloku CustomHTML na Stronie WordPress
 (! nie może być Post - tylko Strona działa !)
 
+w folderze: /kobax/parapety-wewnetrzne/src/
 ```console
 gulp
 ```
@@ -15,7 +16,7 @@ plik wyjściowy:
 plik wyjściowy:
 ./dest/out-formularz/scripts.min.js
 
-3. z pliku parapety_wewnetrzne.html
+3. z pliku parapety-wewnetrzne.html
 plik wyjściowy:
 ./dest/parapety_wewnetrzne__kod_WordPress.html
 

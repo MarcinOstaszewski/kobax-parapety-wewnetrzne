@@ -29,8 +29,12 @@ export function getFormData() {
 }
 
 export function getOrderURL() {
-  const lastSlashIndex = window.location.href.lastIndexOf('/');
-  return window.location.href.substring(0, lastSlashIndex) + '/parapety_wewnetrzne.html';
+  let url = window.location.href;
+  if (url.endsWith('/')) {
+    url = url.slice(0, -1);
+  }
+  const lastSlashIndex = url.lastIndexOf('/');
+  return url.substring(0, lastSlashIndex) + '/parapety-wewnetrzne';
 }
 
 export function getOrdersFromLocalStorage(): (Order[] | []) {
