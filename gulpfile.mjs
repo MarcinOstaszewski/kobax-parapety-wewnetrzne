@@ -30,6 +30,10 @@ const config = {
     js: '<!-- inject:scripts -->'
   },
   destDir: './dist',
+  destDirCalcGHPages: '../gh-pages',
+  destDirFormGHPages: '../gh-pages/parapety_wewnetrzne',
+  index: 'index.html',
+  destHtmlCalculatorGHPages: 'kalkulator.html',
   destHtmlForm: 'formularz_parapety_wewnetrzne__kod_WordPress.html',
   destHtmlCalc: 'kalkulator_parapety_wewnetrzne__kod_WordPress.html',
   destCssFile: 'styles.css',
@@ -65,11 +69,13 @@ const formParapetyPrepareCodeWordPress = () => {
   const jsContent = fs.readFileSync(`${config.destDir}/scripts.js`, 'utf8');
   return src(config.srcHtmlForm)
     .pipe(replace(config.replace.from, config.replace.to)) // paths to images
-    .pipe(injectString.replace(config.inject.css, `<style>${cssContent}</style>`)) // styles inlined
-    .pipe(injectString.replace(config.inject.js, `<script>${jsContent}</script>`)) // scripts inlined
+    .pipe(injectString.replace(config.inject.css, `<style> ${cssContent} </style>`)) // styles inlined
+    .pipe(injectString.replace(config.inject.js, `<script> ${jsContent} </script>`)) // scripts inlined
+    .pipe(rename(config.index))
+    .pipe(dest(config.destDirFormGHPages))
     .pipe(gulpRemoveHtml())
     .pipe(rename(config.destHtmlForm))
-    .pipe(dest(config.destDir));
+    .pipe(dest(config.destDir))
 };
 
 const calcParapetyPrepareCodeForWordPress = () => {
@@ -77,8 +83,10 @@ const calcParapetyPrepareCodeForWordPress = () => {
   const jsContent = fs.readFileSync(`${config.destDir}/bundle.js`, 'utf8');
   return src(config.srcHtmlCalc)
     .pipe(replace(config.replace.from, config.replace.to)) // replace paths to images uploaded to WordPress
-    .pipe(injectString.replace(config.inject.css, `<style>${cssContent}</style>`)) // injects styles to HTML file
-    .pipe(injectString.replace(config.inject.js, `<script>${jsContent}</script>`)) // injects scripts to HTML file
+    .pipe(injectString.replace(config.inject.css, `<style> ${cssContent} </style>`)) // injects styles to HTML file
+    .pipe(injectString.replace(config.inject.js, `<script> ${jsContent} </script>`)) // injects scripts to HTML file
+    .pipe(rename(config.destHtmlCalculatorGHPages))
+    .pipe(dest(config.destDirCalcGHPages))
     .pipe(gulpRemoveHtml())
     .pipe(rename(config.destHtmlCalc))
     .pipe(dest(config.destDir));
