@@ -30,8 +30,8 @@ const config = {
     js: '<!-- inject:scripts -->'
   },
   destDir: './dist',
-  destDirCalcGHPages: '../gh-pages',
-  destDirFormGHPages: '../gh-pages/parapety_wewnetrzne',
+  destDirCalcGHPages: './gh-pages',
+  destDirFormGHPages: './gh-pages/parapety_wewnetrzne',
   index: 'index.html',
   destHtmlCalculatorGHPages: 'kalkulator.html',
   destHtmlForm: 'formularz_parapety_wewnetrzne__kod_WordPress.html',
