@@ -21,6 +21,10 @@
   &.corner-stone { border-radius: 0 0 3px 3px; }
 }
 
+.corner-svg {
+  width: 90px;
+}
+
 .border-img {
   background-color: var(--light-grey-color);
   background: repeating-linear-gradient(
