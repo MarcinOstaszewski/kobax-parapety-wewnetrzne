@@ -1,0 +1,968 @@
+<!--<Deject>-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Parapetów</title>
+  <link rel="icon" href="https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!--</Deject>-->
+<div class="calculator-main">
+  <main>
+    <style> html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{appearance:button;-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{appearance:textfield;-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}:root{--white-color:#fff;--black-color:#000;--dark-grey-color:#333;--medium-grey-color:#666;--grey-color:#999;--light-grey-color:#ddd;--main-color:#9e1981;--info-color:#19199e;--danger-color:#9e1919;--bg-flash-color:#f7e;--bg-control-color:#eef;--bg-error-color:#fdd;--bg-warning-color:#ffc;--bg-locked-color:#fafafa;--min-page-width:660px;--max-page-width:860px}*{box-sizing:border-box}body{margin:20px 10px;font-family:Arimo,Arial,sans-serif;font-optical-sizing:auto;font-style:normal;font-weight:400;font-size:16px;line-height:1.45}p{margin:0;line-height:20px}h1,h2,h3,h4,h5,h6{font-family:Arimo,Arial,sans-serif;color:var(--main-color);font-weight:700;margin:0}h1{font-size:30px;padding:2px 0 2px 10px;margin-bottom:12px;border-left:9px solid #271c65}h2{font-size:21px;margin:2rem 0 .5rem 0}h3{font-size:18px}h4{margin:0 0 1rem 0;font-size:16px}h5{margin:.2rem;font-size:14px;font-weight:400}.calculator-main{min-width:var(--min-page-width);max-width:var(--max-page-width)}main{width:calc(100% - 10px);margin-bottom:3rem}.display-section,.title-section{width:calc(100% - 10px);min-width:var(--min-page-width);max-width:var(--max-page-width);margin:0 0 0 10px}.title-section{font-size:12px}.title-section p{line-height:16px}.title-section label{display:inline-block;width:150px}.display-section{font-size:14px}.display-section{margin-top:20px}.display-section label{margin-right:10px}.display-section strong{font-size:16px}.calculator-form{width:calc(100% - 5px);min-width:var(--min-page-width);max-width:var(--max-page-width);margin:0 0 0 5px}.form-group{display:flex;padding:6px 0 6px 5px}.form-group.locked{background-color:var(--bg-locked-color)}.form-group.locked input,.form-group.locked label{cursor:not-allowed;opacity:.5;pointer-events:none}.form-group label{display:inline-block;min-width:150px;line-height:30px}.form-group img.img-dimensions{position:absolute;top:0;left:40px;width:200px;margin-right:10px}.order-group{margin-top:6px}.discount{margin-left:.5rem;display:flex;justify-content:space-between;align-items:center;width:150px}.discount label{min-width:50px}input[type=number],select{width:100%;padding:4px}input[type=radio]{height:16px;width:16px;accent-color:var(--main-color)}input.width-narrow{width:250px}input.width-very-narrow,label.width-very-narrow{width:50px}.radio-group{display:flex;gap:10px}.radio-group.radios-with-imgs{flex-wrap:wrap;width:100%;justify-content:flex-start}.radio-group label{display:flex;min-width:110px;margin-right:10px;align-items:center;cursor:pointer}.radio-group label div p{width:100%;margin-top:3px}.radio-group input{margin-right:5px}.border-img,.corner-img{display:inline-block;width:90px;height:45px;border:2px solid var(--medium-grey-color)}.border-img.border-svg,.corner-img.border-svg{border:none;background:0 0}.corner-img{border:5px double var(--medium-grey-color);border-top:2px solid var(--medium-grey-color)}.corner-img.corner-r6{border-radius:0 0 6px 6px}.corner-img.corner-r15{border-radius:0 0 15px 15px}.corner-img.corner-r25{border-radius:0 0 25px 25px}.corner-img.corner-r50{border-radius:0 0 40px 40px}.corner-img.corner-stone{border-radius:0 0 3px 3px}.corner-svg{width:90px}.border-img{background-color:var(--light-grey-color);background:repeating-linear-gradient(-45deg,var(--light-grey-color),var(--light-grey-color) 5mm,var(--black-color) 5.1mm,var(--black-color) 5.3mm)}.border-img.border-r3{border-radius:5px 0 0 0}.border-img.border-r6{border-radius:9px 0 0 0}.border-img.border-r12{border-radius:18px 0 0 0}.border-img.border-r20{border-radius:28px 0 0 0}.border-img.border-faza{clip-path:0 0 0 100}.shape-radios p{font-size:13px}.right-to-join{border-radius:0 0 6px 0;border-left:2px solid var(--medium-grey-color)}.left-to-join{border-radius:0 0 0 6px;border-right:2px solid var(--medium-grey-color)}.center-to-join{border-radius:0;border-left:2px solid var(--medium-grey-color);border-right:2px solid var(--medium-grey-color)}.button-group{display:flex;justify-content:space-between;gap:1rem}.button-group button{padding:6px 40px;background-color:var(--main-color);color:var(--white-color);border:none;border-radius:24px;display:block;margin:1rem auto;cursor:pointer}.button-group button:disabled{background-color:var(--grey-color);cursor:not-allowed}.current-order{margin:.5rem auto}.current-order .current-order-description{font-style:normal;margin:0;font-size:14px;color:var(--dark-grey-color)}.current-order .current-order-description.data-not-full{font-style:italic;font-weight:400;color:var(--medium-grey-color)}.current-order .order-elements{padding:1rem;margin:0}.current-order .order-elements li{list-style:none}.orders-list .orders-list-header{margin:12px 10px 0;display:flex;justify-content:space-between;align-items:center}.orders-list .orders-list-header .summary-price{font-size:14px}.orders-list .orders-list-elements{font-size:12px;margin:0;padding:0 .5rem 0 0}.orders-list .orders-list-elements>li{display:flex;gap:10px;list-style:none;padding:1rem .25rem;margin:0 -.25rem;border-bottom:1px solid var(--medium-grey-color)}.orders-list .order-summary{display:flex;flex-direction:column;min-width:80px;justify-content:space-between;border-radius:6px;padding:.5rem .3rem;border:none}.orders-list .order-summary.normal-order{background-color:var(--bg-flash-color)}.orders-list .order-summary.multi-order{background-color:var(--main-color);color:var(--white-color)}.orders-list .order-summary div{text-align:right}.orders-list .order-summary div:not(:last-child){padding-bottom:.3rem}.orders-list .order-description{width:100%}.orders-list .order-elements{padding:.25rem;margin:0}.orders-list .order-elements li{margin:.2rem 0 0 .5rem;display:block}.orders-list .make-order,.orders-list .remove-order{padding:.3rem .5rem;color:var(--white-color);border:none;border-radius:24px;display:block;text-decoration:none}.orders-list .make-order.make-order,.orders-list .remove-order.make-order{background-color:var(--info-color);text-align:center}.orders-list .make-order.remove-order,.orders-list .remove-order.remove-order{background-color:var(--danger-color);cursor:pointer}.buttons-column{display:flex;flex-direction:column;justify-content:space-between;min-width:80px}dialog{width:400px;padding:2rem;text-align:center;color:var(--danger-color);border:2px solid var(--danger-color);border-radius:24px;background-color:var(--white-color)}dialog button{margin-top:1rem;padding:.5rem 1rem;width:50%;color:var(--white-color);background-color:var(--danger-color);border:none;border-radius:24px;display:inline-block}.changed{border-radius:6px;animation:flash 1.5s}@keyframes flash{0%{background-color:var(--white-color)}20%{background-color:var(--bg-flash-color)}100%{background-color:var(--white-color)}}.display-flex{display:flex}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.flex-column{flex-direction:column}.hidden{display:none!important}.position-relative{position:relative}.mt-sm{margin-top:1rem}.mt-md{margin-top:2rem}.ml-sm{margin-left:1rem}.text-gray{color:var(--grey-color)} </style>
+    <section class="title-section">
+      <h1>Kalkulator parapetów wewnętrznych</h1>
+      <p><label>Dostępność: </label><strong>Produkt na zamówienie</strong></p>
+      <p><label>Wysyłka: </label><strong>Wysyłamy na terenie całej Polski. Cena nie zawiera kosztów przesyłki. Wysyłka wyceniana indywidualnie.</strong></p>
+      <p><label>Nietypowe kształty: </label><strong>Nietypowe zamówienia wyceniamy indywidualnie. Napisz na <a href="mailto:zakupy@kobax.pl">zakupy@kobax.pl</a></strong></p>
+      <p><label>Dodatkowe informacje: </label><strong>Wycena nie zawiera kosztów łączników (w przypadku zamówienia parapetów do łączenia).</strong></p>
+    </section>
+    <form id="kalkulator-parapetow" class="calculator-form mt-md">
+      <div class="form-group">
+        <label for="klient">Klient:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="klient" value="detaliczny">Detaliczny</label>
+          <label><input type="radio" name="klient" value="hurtowy">Hurtowy</label>
+        </div>
+        <div id="hurt-rabat" class="discount hidden">
+          <label>Rabat w %:
+            <input type="number" id="rabat" name="rabat" class="width-very-narrow" value="0" min="0" max="75">
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="rodzaj">Rodzaj parapetu:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="rodzaj" value="standard">Standard</label>
+          <label><input type="radio" name="rodzaj" value="wilgociouodporniony">Wilgociouodporniony</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="standard">Grubość:</label>
+        <div class="radio-group grubosc-radio-group">
+          <label class="standard"><input type="radio" name="grubosc" value="18">18 mm</label>
+          <label class="standard"><input type="radio" name="grubosc" value="22">22 mm</label>
+          <label class="standard"><input type="radio" name="grubosc" value="28">28 mm</label>
+        
+          <label class="wilgociouodporniony hidden"><input type="radio" name="grubosc" value="19">19 mm</label>
+          <label class="wilgociouodporniony hidden"><input type="radio" name="grubosc" value="25">25 mm</label>
+          <label class="wilgociouodporniony hidden"><input type="radio" name="grubosc" value="30">30 mm</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Wykończenie:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="kolor" value="folia">Folia pvc</label>
+          <label><input type="radio" name="kolor" value="lakier">Lakierowanie</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="naroznik">Narożnik</label>
+        <div id="naroznik" class="radio-group radios-with-imgs">
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="naroznik" value="R6">
+              <div class="corner-img corner-r6"></div>
+            </div>
+            <p>Narożnik R6</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="naroznik" value="R15">
+              <div class="corner-img corner-r15"></div>
+            </div>
+            <p>Narożnik R15</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="naroznik" value="R25">
+              <div class="corner-img corner-r25"></div>
+            </div>
+            <p>Narożnik R25</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="naroznik" value="R50">
+              <div class="corner-img corner-r50"></div>
+            </div>
+            <p>Narożnik R50</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="naroznik" value="STONE">
+              <div class="corner-img corner-stone"></div>
+            </div>
+            <p>Narożnik STONE</p>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="krawedz">Krawędzie</label>
+        <div id="krawedz" class="radio-group radios-with-imgs">
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="krawedz" value="R3">
+              <div class="border-img border-r3"></div>
+            </div>
+            <p>Krawędź R3</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="krawedz" value="R6">
+              <div class="border-img border-r6"></div>
+            </div>
+            <p>Krawędź R6</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="krawedz" value="R12">
+              <div class="border-img border-r12"></div>
+            </div>
+            <p>Krawędź R12</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="krawedz" value="faza">
+              <img src="https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11/krawedz_faza.png" alt="faza" class="border-img border-svg">
+            </div>
+            <p>Krawędź faza</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="krawedz" value="R20">
+              <div class="border-img border-r20"></div>
+            </div>
+            <p>Krawędź R20</p>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group order-group">
+        <label>Złóż zamówienie:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="zamowienie" value="normal">nowe</label>
+          <label class="ml-sm"><input type="radio" name="zamowienie" value="multi">na kilka elementów jednego rodzaju</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dlugosc">Długość (mm):</label>
+        <input type="number" id="dlugosc" name="dlugosc" min="300" max="3650"class="width-narrow">
+        <div class="position-relative">
+          <img src="https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11/wymiary.webp" alt="Wymiary" class="img-dimensions"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="szerokosc">Szerokość (mm):</label>
+        <input type="number" id="szerokosc" name="szerokosc" min="100" max="1200" class="width-narrow">
+      </div>
+      <div class="form-group">
+        <label for="ilosc">Ilość sztuk:</label>
+        <input type="number" id="ilosc" name="ilosc" value="1" min="1" max="500" class="width-very-narrow">
+      </div>
+      <div class="form-group">
+        <label for="ksztalt">Kształt</label>
+        <div id="ksztalt" class="radio-group radios-with-imgs shape-radios">
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="standard">
+              <div class="corner-img corner-r6"></div>
+            </div>
+            <p>Standard</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="prawy-do-laczenia">
+              <div class="corner-img right-to-join"></div>
+            </div>
+            <p>Prawy do łączenia</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="lewy-do-laczenia">
+              <div class="corner-img left-to-join"></div>
+            </div>
+            <p>Lewy do łączenia</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="srodkowy">
+              <div class="corner-img center-to-join"></div>
+            </div>
+            <p>Środkowy</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="sciety-prawy">
+              <img src="https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11/sciety_prawy.png" alt="Ścięty prawy" class="corner-svg">
+            </div>
+            <p>Ścięty prawy</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="sciety-lewy">
+              <img src="https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11/sciety_prawy.png" alt="Ścięty prawy" class="corner-svg" style="transform: scaleX(-1);">
+            </div>
+            <p>Ścięty lewy</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="sciety-srodkowy">
+              <img src="https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11/sciety_srodkowy.png" alt="Ścięty środkowy" class="corner-svg">
+            </div>
+            <p>Ścięty środkowy</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="prawy-z-lacznikami">
+              <img src="https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11/prawy_z_lacznikami.png" alt="Prawy z łącznikami" class="corner-svg">
+            </div>
+            <p>Prawy z łącznikami</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="lewy-z-lacznikami">
+              <img src="https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11/prawy_z_lacznikami.png" alt="Lewy z łącznikami" class="corner-svg" style="transform: scaleX(-1);">
+            </div>
+            <p>Lewy z łącznikami</p>
+          </label>
+          <label class="flex-column">
+            <div>
+              <input type="radio" name="ksztalt" value="srodkowy-z-lacznikami">
+              <img src="https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11/srodkowy_z_lacznikami.png" alt="Środkowy z łącznikami" class="corner-svg">
+            </div>
+            <p>Środkowy z łącznikami</p>
+          </label>
+        </div>
+      </div>
+      <div>
+        <div class="current-order">
+          <h2>Podsumowanie aktualnego zamówienia:</h2>
+          <div class="current-order-description data-not-full"></div>
+          <div class="button-group">
+            <button class="add-order-button" type="button" disabled>Dodaj nowe zamówienie</button>
+            <button class="add-element-button" type="button" disabled>Dodawaj kolejne elementy</button>
+          </div>
+          <section class="orders-list hidden">
+            <div class="orders-list-header">
+              <h3>Lista zamówień:</h3>
+              <span class="summary-price"></span>
+            </div>
+            <ul class="orders-list-elements"></ul>
+          </section>
+        </div>
+      </div>
+    </form>
+    
+    <dialog id="potwierdz-usuniecie">
+      <div class="dialog-content">
+        <h2>Usunąć zamówienie z listy?</h2>
+        <button class="confirm-order-remove-button">Usuń</button>
+      </div>
+    </dialog>
+    
+    <dialog id="odblokuj-ponizej">
+      <div class="dialog-content">
+        <h4>Aby odblokować te pola, wybierz:</h4>
+        <h3>Złóż zamówienie: ◉ nowe</h3>
+      </div>
+    </dialog>
+    <script> var MyBundle = (function (exports) {
+  'use strict';
+
+  var klientDetalHurt = document.querySelectorAll('[name="klient"]');
+  var hurtRabat = document.getElementById('hurt-rabat');
+  var rabatInput = document.getElementById('rabat');
+  var rodzaj = document.querySelectorAll('[name="rodzaj"]');
+  var grubosc = document.querySelectorAll('[name="' + "grubosc" + '"]');
+  var kolor = document.querySelectorAll('[name="kolor"]');
+  var naroznik = document.querySelectorAll('[name="naroznik"]');
+  var krawedz = document.querySelectorAll('[name="krawedz"]');
+  var zamowienie = document.querySelectorAll('[name="zamowienie"]');
+  var zamowienieGroup = document.querySelector('.order-group');
+  var szerokoscInput = document.getElementById('szerokosc');
+  var dlugoscInput = document.getElementById('dlugosc');
+  var iloscInput = document.getElementById('ilosc');
+  var ksztalt = document.querySelectorAll('[name="ksztalt"]');
+  var currentOrderDescription = document.querySelector('.current-order-description');
+  var addOrderButton = document.querySelector('.add-order-button');
+  var addElementButton = document.querySelector('.add-element-button');
+  var ordersListSection = document.querySelector('.orders-list');
+  var topPanelFields = [klientDetalHurt, rabatInput, rodzaj, grubosc, kolor, naroznik, krawedz];
+  var fieldsForPariatlReset = [szerokoscInput, dlugoscInput, iloscInput, ksztalt];
+
+  var WPROWADZ_WYMIARY = "[wprowadź wymiary]";
+  var CENA_NETTO = 'cena-netto';
+  var AKTUALNE_ZAMOWIENIE = 'Aktualne zamówienie: ';
+  var formId = 'kalkulator-parapetow';
+  var elementsListOpeningTag = '<ul class="order-elements">';
+  var entriesToAddRowNumber = [
+      'szerokosc',
+      'dlugosc',
+      'ilosc',
+      'ksztalt'
+  ];
+
+  var _a, _b, _c, _d, _e, _f, _g;
+  function getNetto(cenaBrutto) {
+      return cenaBrutto / 1.23;
+  }
+  var clientKinds = {
+      hurtowy: 'hurtowy',
+      detaliczny: 'detaliczny'
+  };
+  var kolorMapping = {
+      folia: 'folia',
+      lakier: 'lakier'
+  };
+  var rodzajMapping;
+  (function (rodzajMapping) {
+      rodzajMapping["standard"] = "standard";
+      rodzajMapping["wilgociouodporniony"] = "wilgociouodporniony";
+  })(rodzajMapping || (rodzajMapping = {}));
+  var cenyZa1m2 = (_a = {},
+      _a[clientKinds.hurtowy] = (_b = {},
+          _b[kolorMapping.folia] = (_c = {},
+              _c[rodzajMapping.standard] = {
+                  18: 260.2,
+                  22: 274.8,
+                  28: 302.4
+              },
+              _c[rodzajMapping.wilgociouodporniony] = {
+                  19: 311.4,
+                  25: 362.6,
+                  30: 399.2
+              },
+              _c),
+          _b[kolorMapping.lakier] = (_d = {},
+              _d[rodzajMapping.standard] = {
+                  18: 345.5,
+                  22: 369.1,
+                  28: 392.7
+              },
+              _d[rodzajMapping.wilgociouodporniony] = {
+                  19: 375.6,
+                  25: 411.4,
+                  30: 469.9
+              },
+              _d),
+          _b),
+      _a[clientKinds.detaliczny] = (_e = {},
+          _e[kolorMapping.folia] = (_f = {},
+              _f[rodzajMapping.standard] = {
+                  18: getNetto(365),
+                  22: getNetto(433),
+                  28: getNetto(480)
+              },
+              _f[rodzajMapping.wilgociouodporniony] = {
+                  19: getNetto(499),
+                  25: getNetto(580),
+                  30: getNetto(641)
+              },
+              _f),
+          _e[kolorMapping.lakier] = (_g = {},
+              _g[rodzajMapping.standard] = {
+                  18: getNetto(776),
+                  22: getNetto(1542),
+                  28: getNetto(893)
+              },
+              _g[rodzajMapping.wilgociouodporniony] = {
+                  19: getNetto(803),
+                  25: getNetto(878),
+                  30: getNetto(953)
+              },
+              _g),
+          _e),
+      _a);
+  var ksztaltMapping = {
+      'standard': 'standard',
+      'prawy-do-laczenia': 'prawy do łączenia',
+      'lewy-do-laczenia': 'lewy do łączenia',
+      'srodkowy': 'środkowy',
+      'sciety-prawy': 'ścięty prawy',
+      'sciety-lewy': 'ścięty lewy',
+      'sciety-srodkowy': 'ścięty środkowy',
+      'prawy-z-lacznikami': 'prawy z łącznikami',
+      'lewy-z-lacznikami': 'lewy z łącznikami',
+      'srodkowy-z-lacznikami': 'środkowy z łącznikami'
+  };
+  var orderTypes = {
+      normal: 'normal',
+      multi: 'multi'
+  };
+  var orderTypesMapping = {
+      normal: 'Zwykłe',
+      multi: 'Multi'
+  };
+
+  function getForm() {
+      return document.getElementById(formId);
+  }
+  function getRodzajValue() {
+      var rodzaj = document.querySelector('[name="rodzaj"]:checked');
+      return rodzaj ? rodzaj.value : null;
+  }
+  function getKlientKind() {
+      var klientKind = document.querySelector('[name="klient"]:checked');
+      return klientKind ? klientKind.value : null;
+  }
+  function getFormData() {
+      var form = getForm();
+      var formData = new FormData(form);
+      var data = {};
+      formData.forEach(function (value, key) {
+          data[key] = value;
+      });
+      return data;
+  }
+  function getOrderURL() {
+      var url = window.location.href;
+      if (url.endsWith('/')) {
+          url = url.slice(0, -1);
+      }
+      var lastSlashIndex = url.lastIndexOf('/');
+      return url.substring(0, lastSlashIndex) + '/parapety-wewnetrzne';
+  }
+  function getOrdersFromLocalStorage() {
+      var ordersList = localStorage.getItem('orders') || '[]';
+      return JSON.parse(ordersList) || [];
+  }
+  function isSameKindOrder() {
+      var orderKindChecked = document.querySelector('[name="zamowienie"]:checked');
+      return orderKindChecked ? orderKindChecked.value === orderTypes.multi : false;
+  }
+  function isDiscountValid(clientKind) {
+      if (clientKind === clientKinds.hurtowy) {
+          if (parseFloat(rabatInput.value) > 0) {
+              return true;
+          }
+      }
+      return false;
+  }
+
+  function setDiscountValue() {
+      var clientKind = getKlientKind();
+      if (!isDiscountValid(clientKind)) {
+          rabatInput.value = '0';
+          setRabat(1);
+      }
+      else {
+          setRabat(1 - parseFloat(rabatInput.value) / 100);
+      }
+      saveToLocalStorageAndUpdateDisplay();
+  }
+
+  function showHideGruboscOptions(value) {
+      var isStandard = getRodzajValue() === rodzajMapping.standard;
+      var show = isStandard ? document.querySelectorAll('.standard') : document.querySelectorAll('.wilgociouodporniony');
+      var hide = isStandard ? document.querySelectorAll('.wilgociouodporniony') : document.querySelectorAll('.standard');
+      hide.forEach(function (label) {
+          label.classList.add('hidden');
+      });
+      show.forEach(function (label, i) {
+          label.querySelector('input').checked = i === 0;
+          label.classList.remove('hidden');
+      });
+      if (value) { // when called from change event
+          flashGruboscGroup();
+          saveToLocalStorageAndUpdateDisplay();
+      }
+  }
+
+  function verifyMinMaxValue() {
+      if (parseInt(this.value) > this.max)
+          this.value = this.max;
+      if (parseInt(this.value) < this.min)
+          this.value = this.min;
+      saveToLocalStorageAndUpdateDisplay();
+  }
+
+  function saveToLocalStorageAndUpdateDisplay() {
+      var data = getFormData();
+      localStorage.setItem(formId, JSON.stringify(data));
+      updateCurrentOrderDescription(data);
+      toggleTopPanelLock();
+  }
+
+  function addNewOrderToList(type) {
+      if (type === void 0) { type = orderTypes.normal; }
+      var data = getFormData();
+      var url = getOrderURL();
+      var queriesString = "?kalkulator=true&";
+      var dlugosc = 0;
+      var szerokosc = 0;
+      var ilosc = 0;
+      var surface = 0;
+      var dodatkowe = 'dodatkowe=';
+      for (var entry in data) {
+          if (data[entry] !== "") {
+              var value = entry;
+              if (entriesToAddRowNumber.includes(entry)) {
+                  value += '-row-' + 1;
+              }
+              if (entry === 'dlugosc')
+                  dlugosc = parseFloat(data[entry]);
+              if (entry === 'szerokosc')
+                  szerokosc = parseFloat(data[entry]);
+              if (entry === 'ilosc')
+                  ilosc = parseFloat(data[entry]);
+              queriesString += value + "=" + data[entry] + "&";
+          }
+      }
+      if (dlugosc) {
+          if (szerokosc) {
+              if (ilosc) {
+                  var _a = updateValues({ dlugosc: dlugosc, szerokosc: szerokosc, ilosc: ilosc, surface: surface, queriesString: queriesString, dodatkowe: dodatkowe }), s = _a.s, q = _a.q, d = _a.d;
+                  surface = s;
+                  queriesString = q;
+                  dodatkowe = d;
+              }
+          }
+      }
+      if (dodatkowe) {
+          queriesString += dodatkowe + "&";
+      }
+      addOrderToLocalStorage({
+          textContent: currentOrderDescription.innerHTML.replace(AKTUALNE_ZAMOWIENIE, ''),
+          url: url,
+          queriesString: queriesString,
+          // @ts-expect-error // can't assign the right type to the type property
+          type: type,
+          addToLastOrder: false,
+          surface: surface
+      });
+      if (type === orderTypes.multi) {
+          partialFormReset();
+      }
+      else {
+          resetForm();
+      }
+      showOrdersListFromLocalStorage();
+      flashNewListElement();
+  }
+
+  function addOrderToLocalStorage(params) {
+      var orders = getOrdersFromLocalStorage();
+      var url = params.url;
+      var type = params.type;
+      var textContent = params.textContent;
+      var addToLastOrder = params.addToLastOrder;
+      var queriesString = params.queriesString;
+      var surface = params.surface;
+      if (addToLastOrder) {
+          if (orders.length) {
+              if (type === orderTypes.multi) {
+                  var lastOrder = orders.shift();
+                  lastOrder.textContent += textContent;
+                  lastOrder.lastRowNumber = params.lastRowNumber;
+                  lastOrder.queriesString = queriesString;
+                  lastOrder.cenaNetto += parseFloat(document.getElementById(CENA_NETTO).innerText);
+                  lastOrder.surface = surface;
+                  orders.unshift(lastOrder);
+              }
+          }
+      }
+      else {
+          var newOrder = {
+              textContent: textContent,
+              url: url,
+              queriesString: queriesString,
+              type: type,
+              lastRowNumber: 1,
+              cenaNetto: parseFloat(document.getElementById(CENA_NETTO).innerText),
+              surface: surface
+          };
+          orders.unshift(newOrder);
+      }
+      setTimeout(function () {
+          var _a;
+          (_a = document.querySelector('.changed')) === null || _a === void 0 ? void 0 : _a.classList.remove('changed');
+      }, 1500);
+      localStorage.setItem('orders', JSON.stringify(orders));
+  }
+
+  function showOrdersListFromLocalStorage() {
+      var orders = getOrdersFromLocalStorage();
+      var summaryPriceNetto = 0;
+      if (orders.length > 0) {
+          ordersListSection.classList.remove('hidden');
+          ordersListSection.querySelector('ul').innerHTML = '';
+          orders.forEach(function (order) {
+              var open = '<a class="make-order" href="' + order.url + order.queriesString + '" target="_blank">Zamów</a>';
+              var remove = '<button class="remove-order" type="button">Usuń</button>';
+              var orderType = orderTypesMapping[order.type];
+              var labelText = 'Typ: <strong>' + orderType + '</strong>';
+              var typeLabel = '<div class="order-type">' + labelText + '</div>';
+              var sumaNetto = '<div class="suma-netto">Suma netto:<br><strong>' + order.cenaNetto.toFixed(2) + ' zł</strong></div>';
+              var sumaBrutto = '<div class="suma-brutto">Suma brutto:<br><strong>' + (order.cenaNetto * 1.23).toFixed(2) + ' zł</strong></div>';
+              var orderSummary = '<div class="order-summary ' + order.type + '-order">' + typeLabel + sumaNetto + sumaBrutto + '</div>';
+              var summaryText = '<div class="order-description">' + order.textContent + '</div>';
+              var buttonsColumn = '<div class="buttons-column">' + open + remove + '</div>';
+              var li = document.createElement('li');
+              li.innerHTML = orderSummary + summaryText + buttonsColumn;
+              ordersListSection.querySelector('ul').appendChild(li);
+              summaryPriceNetto += order.cenaNetto;
+          });
+          ordersListSection.querySelectorAll('.remove-order').forEach(function (button, index) {
+              button.addEventListener('click', function () { confirmRemoveOrder(index); });
+          });
+          document.querySelector('.summary-price').innerHTML = 'Sumaryczna cena netto: <strong>' + summaryPriceNetto.toFixed(2) + ' zł</strong>, brutto: <strong>' + (summaryPriceNetto * 1.23).toFixed(2) + ' zł</strong>';
+      }
+      else {
+          ordersListSection.classList.add('hidden');
+      }
+  }
+
+  function addElementToOrder() {
+      var ordersList = getOrdersFromLocalStorage();
+      var lastOrder = ordersList[0] || {};
+      var existsLastOrder = Object.keys(ordersList).length;
+      var type = existsLastOrder ? lastOrder.type : null;
+      if (existsLastOrder) {
+          if (type === orderTypes.multi) { // dodaje do istniejącego zamówienia
+              var newRowNumber = lastOrder.lastRowNumber ? lastOrder.lastRowNumber + 1 : 1;
+              var data = getFormData();
+              var queriesString = lastOrder.queriesString;
+              var dlugosc = 0;
+              var szerokosc = 0;
+              var ilosc = 0;
+              var surface = lastOrder.surface;
+              var dodatkowe = '';
+              for (var entry in data) {
+                  if (data[entry] !== "") {
+                      if (entriesToAddRowNumber.includes(entry)) {
+                          queriesString += entry + '-row-' + newRowNumber + "=" + data[entry] + "&";
+                          if (entry === 'dlugosc')
+                              dlugosc = parseFloat(data[entry]);
+                          if (entry === 'szerokosc')
+                              szerokosc = parseFloat(data[entry]);
+                          if (entry === 'ilosc')
+                              ilosc = parseFloat(data[entry]);
+                      }
+                  }
+              }
+              if (dlugosc) {
+                  if (szerokosc) {
+                      if (ilosc) {
+                          var powierzchniaIndex = queriesString.indexOf('powierzchnia=');
+                          var m2Index = queriesString.indexOf('m²');
+                          queriesString = queriesString.substring(0, powierzchniaIndex) + queriesString.substring(m2Index + 2);
+                          console.log('queriesString', queriesString);
+                          var _a = updateValues({ dlugosc: dlugosc, szerokosc: szerokosc, ilosc: ilosc, surface: surface, queriesString: queriesString, dodatkowe: dodatkowe }), s = _a.s, q = _a.q, d = _a.d;
+                          surface = s;
+                          queriesString = q;
+                          dodatkowe = d;
+                      }
+                  }
+              }
+              if (dodatkowe) {
+                  queriesString += 'dodatkowe=' + dodatkowe + "&";
+              }
+              var url = getOrderURL();
+              var textContent = currentOrderDescription.innerHTML;
+              textContent = textContent.substring(textContent.lastIndexOf(elementsListOpeningTag));
+              addOrderToLocalStorage({
+                  textContent: textContent,
+                  url: url,
+                  queriesString: queriesString,
+                  type: type,
+                  lastRowNumber: newRowNumber,
+                  addToLastOrder: true,
+                  surface: surface
+              });
+              partialFormReset();
+              showOrdersListFromLocalStorage();
+              flashNewListElement();
+          }
+          else {
+              addNewOrderToList(orderTypes.multi);
+          }
+      }
+  }
+
+  function updateCurrentOrderDescription(data) {
+      var klient = data["klient"];
+      var rabat = data["rabat"];
+      var rodzaj = data["rodzaj"];
+      var grubosc = data["grubosc"];
+      var kolor = data["kolor"];
+      var naroznik = data["naroznik"];
+      var krawedz = data["krawedz"];
+      var ksztalt = data["ksztalt"];
+      var szerokosc = data["szerokosc"];
+      var dlugosc = data["dlugosc"];
+      var ilosc = data["ilosc"];
+      var wlasciwosci = true;
+      var requiredFields = [klient, rodzaj, grubosc, kolor, naroznik, krawedz];
+      for (var _i = 0, requiredFields_1 = requiredFields; _i < requiredFields_1.length; _i++) {
+          var field = requiredFields_1[_i];
+          if (!field) {
+              wlasciwosci = false;
+              break;
+          }
+      }
+      var powierzchnia = WPROWADZ_WYMIARY;
+      var orderDescription = AKTUALNE_ZAMOWIENIE;
+      var cena = 0;
+      function addDescriptionFragment(labelText, key, unit, coma) {
+          if (key) {
+              if (typeof key === "string" ? key[0] !== "0" : key) { // when sizes are set, price should not be displayed
+                  orderDescription += labelText + "<strong>" + key + (unit || "") + "</strong>" + (coma || "");
+              }
+          }
+      }
+      addDescriptionFragment("Typ klienta: ", klient, "", ",");
+      if (klient === clientKinds.hurtowy) {
+          if (rabat) {
+              if (!isNaN(getRabat())) {
+                  if (getRabat() > 0) {
+                      orderDescription += " rabat: " + rabat + "%, ";
+                  }
+              }
+          }
+      }
+      addDescriptionFragment(" rodzaj parapetu: ", rodzaj, "", ",");
+      addDescriptionFragment(" grubość: ", grubosc, "", ",");
+      addDescriptionFragment(" wykończenie: ", kolor, "", ",");
+      addDescriptionFragment(" narożnik: ", naroznik, "", ",");
+      addDescriptionFragment(" krawędź: ", krawedz, "", ".");
+      orderDescription += elementsListOpeningTag + "<li>";
+      if (ksztalt) {
+          (orderDescription += "Kształt: <strong>" + ksztaltMapping[ksztalt] + "</strong>, ");
+      }
+      addDescriptionFragment(" długość: ", dlugosc, " mm", ",");
+      addDescriptionFragment(" szerokość: ", szerokosc, " mm", ",");
+      addDescriptionFragment(" ilość sztuk: ", ilosc, "", ",");
+      if (klient) {
+          if (kolor) {
+              if (rodzaj) {
+                  if (grubosc) {
+                      // @ts-expect-error // can't use values from mappings as keys in nested objects
+                      cena = cenyZa1m2[klient][kolor][rodzaj][grubosc];
+                  }
+              }
+          }
+      }
+      if (cena > 0) {
+          if (!isNaN(szerokosc)) {
+              if (!isNaN(dlugosc)) {
+                  if (!isNaN(ilosc)) {
+                      var surface = szerokosc * dlugosc / 100;
+                      powierzchnia = Math.round(surface) + ' cm²' + ' (' + (surface / 10000).toFixed(3) + ' m²)';
+                      var cenaNetto = (cena * (surface / 10000) * ilosc * getRabat()).toFixed(2) + ' zł';
+                      var cenaBrutto = (cena * (surface / 10000) * 1.23 * ilosc * getRabat()).toFixed(2) + ' zł';
+                      addDescriptionFragment(" powierzchnia: ", powierzchnia, '', ',');
+                      addDescriptionFragment(" cena brutto: ", cenaBrutto, '', ',');
+                      addDescriptionFragment(' cena netto: <span id="' + CENA_NETTO + '">', cenaNetto, '</span>', '.');
+                  }
+              }
+          }
+      }
+      orderDescription += '</li></ul>';
+      currentOrderDescription.innerHTML = orderDescription;
+      zamowienieGroup.classList.toggle('locked', !wlasciwosci); // disabled when not all required fields are checked
+      if (wlasciwosci) {
+          if (ksztalt) {
+              if (szerokosc) {
+                  if (dlugosc) {
+                      if (ilosc) {
+                          toggleOrderButtons(true);
+                          currentOrderDescription.classList.remove('data-not-full');
+                          addOrderButton.innerText = 'Dodaj nowe zamówienie';
+                          addElementButton.innerText = 'Dodawaj kolejne elementy';
+                      }
+                  }
+              }
+          }
+      }
+      else {
+          toggleOrderButtons(false);
+          currentOrderDescription.classList.add('data-not-full');
+          addOrderButton.innerText = 'Uzupełnij dane zamówienia';
+          addElementButton.innerText = 'Uzupełnij dane zamówienia';
+      }
+  }
+
+  function removeOrderFromLocalStorage(index) {
+      var orders = getOrdersFromLocalStorage();
+      orders.splice(index, 1);
+      localStorage.setItem('orders', JSON.stringify(orders));
+      showOrdersListFromLocalStorage();
+  }
+
+  function flashGruboscGroup() {
+      var gruboscGroup = document.querySelector('.grubosc-radio-group');
+      gruboscGroup.classList.add('changed');
+      setTimeout(function () {
+          gruboscGroup.classList.remove('changed');
+      }, 1500);
+  }
+  function flashChangedRadioGroup(namesList) {
+      namesList.forEach(function (name) {
+          var radio = document.querySelector('[name="' + name + '"]');
+          radio.closest('.radio-group').classList.add('changed');
+          setTimeout(function () {
+              radio.closest('.radio-group').classList.remove('changed');
+          }, 1500);
+      });
+  }
+  function showHideHurtRabat() {
+      var clientKind = getKlientKind();
+      hurtRabat.classList.toggle('hidden', clientKind !== clientKinds.hurtowy);
+      setDiscountValue();
+  }
+  function resetForm() {
+      var form = getForm();
+      form.reset();
+      localStorage.removeItem(formId);
+      showHideHurtRabat();
+      showHideGruboscOptions();
+      saveToLocalStorageAndUpdateDisplay();
+  }
+  function partialFormReset() {
+      fieldsForPariatlReset.forEach(function (field) {
+          if (field instanceof NodeList) {
+              field.forEach(function (field) { return field.checked = false; });
+          }
+          else {
+              field.value = '';
+          }
+      });
+      toggleOrderButtons(false);
+      saveToLocalStorageAndUpdateDisplay();
+  }
+  function toggleOrderButtons(isValid) {
+      var isSameKind = isSameKindOrder();
+      addOrderButton.disabled = !isValid || isSameKind;
+      addElementButton.disabled = !isValid || !isSameKind;
+  }
+  function openLockedInfoDialog() {
+      var dialog = document.getElementById('odblokuj-ponizej');
+      if (!dialog)
+          return;
+      dialog.showModal();
+      dialog.addEventListener('click', function () { dialog.close(); });
+  }
+  function toggleTopPanelLock() {
+      var isSameKind = isSameKindOrder();
+      topPanelFields.forEach(function (fieldOrList) {
+          var field = (fieldOrList instanceof NodeList) ? fieldOrList[0] : fieldOrList;
+          var formGroup = field.closest('.form-group');
+          if (formGroup) {
+              formGroup.classList.toggle('locked', isSameKind);
+              if (isSameKind) {
+                  formGroup.addEventListener('click', openLockedInfoDialog);
+              }
+              else {
+                  formGroup.removeEventListener('click', openLockedInfoDialog);
+              }
+          }
+      });
+  }
+  function checkIfStoneSelected(event) {
+      var target = event.target;
+      if (target.value === 'STONE') {
+          krawedz.forEach(function (radio) { radio.checked = radio.value === 'faza'; });
+          flashChangedRadioGroup(['krawedz']);
+      }
+      saveToLocalStorageAndUpdateDisplay();
+  }
+  function confirmRemoveOrder(index) {
+      var dialog = document.getElementById('potwierdz-usuniecie');
+      if (!dialog)
+          return;
+      dialog.showModal();
+      var dialogButton = dialog.querySelector('button');
+      dialogButton.addEventListener('click', function () {
+          removeOrderFromLocalStorage(index);
+          dialog.close();
+      });
+      dialog.addEventListener('click', function () { dialog.close(); });
+  }
+  function flashNewListElement() {
+      var firstListElement = document.querySelector('.orders-list-elements li');
+      if (firstListElement)
+          firstListElement.classList.add('changed');
+  }
+  function updateValues(_a) {
+      var surface = _a.surface, queriesString = _a.queriesString, dodatkowe = _a.dodatkowe, dlugosc = _a.dlugosc, szerokosc = _a.szerokosc, ilosc = _a.ilosc;
+      surface += dlugosc * szerokosc * ilosc / 100;
+      queriesString += 'powierzchnia=' + (surface / 10000).toFixed(3) + ' m²&';
+      return { s: surface, q: queriesString, d: dodatkowe };
+  }
+
+  var addListenerToRadios = function (radios, type, callback) {
+      radios.forEach(function (radio) {
+          radio.addEventListener(type, callback);
+      });
+  };
+  function addEventListeners() {
+      addListenerToRadios(klientDetalHurt, 'change', showHideHurtRabat);
+      rabatInput.addEventListener('input', function () { setDiscountValue(); });
+      addListenerToRadios(rodzaj, 'change', function (event) { showHideGruboscOptions(event.target.value); });
+      addListenerToRadios(naroznik, 'change', checkIfStoneSelected);
+      [grubosc, kolor, zamowienie, krawedz, ksztalt].forEach(function (radios) { addListenerToRadios(radios, 'change', saveToLocalStorageAndUpdateDisplay); });
+      ['szerokosc', 'dlugosc', 'ilosc'].forEach(function (id) { document.getElementById(id).addEventListener('change', function () { verifyMinMaxValue.call(this); }); });
+      addOrderButton.addEventListener('click', function () { addNewOrderToList(); });
+      addElementButton.addEventListener('click', addElementToOrder);
+  }
+
+  function checkForDataInLocalStorage() {
+      var form = getForm();
+      if (!localStorage)
+          console.error('Brak obsługi localStorage');
+      var data = localStorage.getItem(formId);
+      if (data) {
+          var entries = JSON.parse(data);
+          for (var key in entries) {
+              var element = form.querySelector('[name="' + key + '"]');
+              if (!element)
+                  continue;
+              if (element.type === 'radio') {
+                  var radio = form.querySelector('[name="' + key + '"][value="' + entries[key] + '"]');
+                  radio.checked = true;
+              }
+              else {
+                  element.value = entries[key];
+              }
+          }
+      }
+  }
+
+  // import "./index.css";
+  var state = {
+      rabat: 1
+  };
+  function getRabat() {
+      return state.rabat;
+  }
+  function setRabat(value) {
+      state.rabat = value;
+  }
+  function init() {
+      addEventListeners();
+      checkForDataInLocalStorage();
+      showOrdersListFromLocalStorage();
+      showHideHurtRabat();
+      showHideGruboscOptions();
+  }
+  init();
+
+  exports.getRabat = getRabat;
+  exports.setRabat = setRabat;
+
+  return exports;
+
+})({});
+ </script>
+  </main>
+</div>
+<!--<Deject>-->
+</body>
+</html>
+<!--</Deject>-->
