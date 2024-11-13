@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="normalize.css" type="text/css">
-  <link rel="stylesheet" href="parapety_wewnetrzne_styles.css" type="text/css">
+  <link rel="stylesheet" href="parapety_wewnetrzne.css" type="text/css">
 </head>
 <body>
 <!--</Deject>-->
@@ -49,7 +49,7 @@
               <td class="col-4" colspan="2">
                 <select id="naroznik" name="naroznik" class="control-cell">
                   <option value=""></option>
-                  <option value="STONE">STONE</option>
+                  <option value="STONE">STONE *</option>
                   <option value="R6">R6</option>
                   <option value="R15">R15</option>
                   <option value="R25">R25</option>
@@ -91,7 +91,7 @@
                   <option value="R6">R6</option>
                   <option value="R12">R12</option>
                   <option value="R20">R20</option>
-                  <option value="faza">FAZA</option>
+                  <option value="faza">FAZA *</option>
                 </select>
               </td>
               <td rowspan="2" class="title-cell">SPOSÓB DOSTAWY</td>
@@ -144,13 +144,13 @@
         <section class="display-flex gap-075 col-12">
           <div class="central-table-left-container display-flex col-6"></div>
           <div class="flex-column gap-075 col-6">
-            <div class="right-container border-bold flex-column align-center p-03">
+            <div class="border-bold flex-column align-center p-03">
               <strong>NAROŻNIKI</strong>
               <img src="assets/narozniki.png" alt="Narożniki do wyboru" class="col-10 mx-auto my-md">
-              <small><i>* narożnik STONE występuje wyłącznie w krawędzi FAZA</i></small>
+              <legend id="stone-faza-legend" class="corner-stone-description"><i>* narożnik STONE występuje wyłącznie w krawędzi FAZA</i></legend>
             </div>
 
-            <div class="right-container border-bold flex-column align-center p-03">
+            <div class="border-bold flex-column align-center p-03">
               <strong>KRAWĘDZIE</strong>
               <img src="assets/krawedzie.png" alt="Krawędzie do wyboru" class="col-10 mx-auto my-md">
             </div>

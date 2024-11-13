@@ -249,6 +249,7 @@
     const borderFinish = document.getElementById(id);
     borderFinish.value = value;
     flashElementBackground(id);
+    flashElementBackground("stone-faza-legend");
   }
 
   function recountSurface() {
@@ -278,6 +279,15 @@
     const cornerSelect = document.getElementById("naroznik");
     cornerSelect.addEventListener("change", function(event) {
       if (event.target.value === "STONE") { setElementToValueAndFlash("krawedz", "faza")};
+    });
+    const borderSelect = document.getElementById("krawedz");
+    borderSelect.addEventListener("change", function(event) {
+      console.log(cornerSelect.value);
+      if (cornerSelect.value === "STONE") {
+        borderSelect.value = "faza";
+        flashElementBackground("krawedz");
+        flashElementBackground("stone-faza-legend");
+      }
     });
     recountSurfaceFields.forEach(function(fieldId) {
       for (let i = 1; i <= 20; i++) {

@@ -285,6 +285,10 @@ input, select {
   padding: 0;
 }
 
+.corner-stone-description {
+  font-size: 13px;
+}
+
 .orderer {
   border-collapse: collapse;
 }
