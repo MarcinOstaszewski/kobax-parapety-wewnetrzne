@@ -1,11 +1,11 @@
 import { formId } from "../consts/consts";
 import { addElementButton, addOrderButton, fieldsForPariatlReset, hurtRabat, krawedz, topPanelFields } from "../consts/consts-ui-elements";
+import { clientKinds } from "../consts/mappings";
 import { removeOrderFromLocalStorage } from "../scripts/removeOrderFromLocalStorage";
 import { saveToLocalStorageAndUpdateDisplay } from "../scripts/saveToLocalStorageAndUpdateDisplay";
 import { setDiscountValue } from "../scripts/setDiscountValue";
-import { getForm, getKlientKind, isSameKindOrder } from "./utils";
 import { showHideGruboscOptions } from "../scripts/showHideGruboscOptions";
-import { clientKinds } from "../consts/mappings";
+import { getForm, getKlientKind, isSameKindOrder } from "./utils";
 
 export function flashGruboscGroup() {
   const gruboscGroup = document.querySelector('.grubosc-radio-group') as HTMLElement;
@@ -15,13 +15,18 @@ export function flashGruboscGroup() {
   }, 1500);
 }
 
+export function flashHtmlElement(element: HTMLElement) {
+  element.classList.add('changed');
+  setTimeout(function() {
+    element.classList.remove('changed');
+  }, 1500);
+}
+
 export function flashChangedRadioGroup(namesList: string[]) {
   namesList.forEach(function(name) {
     const radio = document.querySelector('[name="' + name + '"]') as HTMLInputElement;
-    radio.closest('.radio-group')!.classList.add('changed');
-    setTimeout(function() {
-      radio.closest('.radio-group')!.classList.remove('changed');
-    }, 1500);
+    const radioGroup = radio.closest('.radio-group') as HTMLElement;
+    flashHtmlElement(radioGroup);
   });
 }
 
@@ -82,13 +87,25 @@ export function toggleTopPanelLock() {
   });
 }
 
-export function checkIfStoneSelected(event: Event) {
-  const target = event.target as HTMLInputElement;
-  if (target.value === 'STONE') {
+function checkIfStoneCornerSelected(value: string) {
+  if (value === 'STONE') {
     krawedz.forEach(function(radio) { radio.checked = radio.value === 'faza' });
     flashChangedRadioGroup(['krawedz']);
+    flashHtmlElement(document.querySelector('.border-explanation') as HTMLElement);
   }
+}
+
+export function checkIfStoneSelected(event: Event) {
+  const target = event.target as HTMLInputElement;
+  checkIfStoneCornerSelected(target.value);
   saveToLocalStorageAndUpdateDisplay();
+}
+
+export function handleBorderRadioClicked(event: Event) {
+  const selectedCorner = document.querySelector('[name="naroznik"]:checked') as HTMLInputElement;
+  if (selectedCorner) {
+    checkIfStoneCornerSelected(selectedCorner.value);
+  }
 }
 
 export function confirmRemoveOrder(index: number) {

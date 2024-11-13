@@ -1,17 +1,17 @@
 // DLA KALKULATORA PARAPETY WEWNETRZNE
 // bez Webpacka z Rollupem
 // + DLA FORMULARZA PARAPETY WEWNETRZNE
-import gulp, { src, dest, series } from 'gulp';
-import dartSass from 'sass';
-import sass from 'gulp-sass';
+import fs from 'fs';
+import gulp, { dest, src } from 'gulp';
 import cleanCSS from 'gulp-clean-css';
-import replace from 'gulp-replace';
-import sourcemaps from 'gulp-sourcemaps';
+import concat from 'gulp-concat';
 import injectString from 'gulp-inject-string';
 import gulpRemoveHtml from 'gulp-remove-html';
 import rename from 'gulp-rename';
-import concat from 'gulp-concat';
-import fs from 'fs';
+import replace from 'gulp-replace';
+import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
+import dartSass from 'sass';
 
 console.log('NALEŻTY URUCHAMIAĆ przez: "/parapety-wewnetrzne/npm run build"');
 
@@ -64,7 +64,7 @@ const compileSass = () => {
     .pipe(gulp.dest(config.destDir));
 };
 
-const formParapetyPrepareCodeWordPress = () => {
+const formParapetyPrepareCodeForWordPress = () => {
   const cssContent = fs.readFileSync(`${config.destDir}/styles.min.css`, 'utf8');
   const jsContent = fs.readFileSync(`${config.destDir}/scripts.js`, 'utf8');
   return src(config.srcHtmlForm)
@@ -100,7 +100,7 @@ gulp.task('buildCalc', gulp.series(
 gulp.task('buildForm', gulp.series(
   compileStyles,
   compileScripts,
-  formParapetyPrepareCodeWordPress
+  formParapetyPrepareCodeForWordPress
 ));
 
 export default gulp.parallel(

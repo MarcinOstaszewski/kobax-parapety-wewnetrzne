@@ -14,7 +14,7 @@
 
   label {
     display: inline-block;
-    min-width: 150px;
+    min-width: var(--left-column-width);
     line-height: 30px;
   }
 
@@ -31,12 +31,18 @@
   margin-top: 6px;
 }
 
+.border-explanation {
+  margin-left: calc(var(--left-column-width) + 5px);
+  padding: 6px;
+  font-style: italic;
+}
+
 .discount {
   margin-left: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 150px;
+  width: var(--left-column-width);
 
   label {
     min-width: 50px;
