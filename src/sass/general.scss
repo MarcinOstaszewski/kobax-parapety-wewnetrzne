@@ -10,6 +10,9 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.45;
+  height: 100vh;
+  overflow-y: hidden;
+  display: flex;
 }
 
 p {
@@ -33,7 +36,7 @@ h1 {
 
 h2 {
   font-size: 21px;
-  margin: 2rem 0 0.5rem 0;
+  margin: 0 0 0.5rem 0;
 }
 
 h3 {
@@ -52,11 +55,38 @@ h5 {
 }
 
 .calculator-main {
-  min-width: var(--min-page-width);
-  max-width: var(--max-page-width);
+  width: 100%;
 }
 
 main {
   width: calc(100% - 10px);
   margin-bottom: 3rem;
+}
+
+.form-column {
+  overflow-y: auto;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+
+  &.main-form-column {
+    max-width: 900px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 1px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
 }
