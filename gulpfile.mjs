@@ -1,19 +1,19 @@
 // DLA KALKULATORA PARAPETY WEWNETRZNE
 // bez Webpacka z Rollupem
 // + DLA FORMULARZA PARAPETY WEWNETRZNE
-import fs from 'fs';
-import gulp, { dest, src } from 'gulp';
+import gulp, { src, dest, series } from 'gulp';
+import dartSass from 'sass';
+import sass from 'gulp-sass';
 import cleanCSS from 'gulp-clean-css';
-import concat from 'gulp-concat';
+import replace from 'gulp-replace';
+import sourcemaps from 'gulp-sourcemaps';
 import injectString from 'gulp-inject-string';
 import gulpRemoveHtml from 'gulp-remove-html';
 import rename from 'gulp-rename';
-import replace from 'gulp-replace';
-import sass from 'gulp-sass';
-import sourcemaps from 'gulp-sourcemaps';
-import dartSass from 'sass';
+import concat from 'gulp-concat';
+import fs from 'fs';
 
-console.log('NALEŻTY URUCHAMIAĆ przez: "/parapety-wewnetrzne/npm run build"');
+console.log('NALEŻY URUCHAMIAĆ przez: "/parapety-wewnetrzne/npm run build"');
 
 const config = {
   srcHtmlCalc: './src/index.html',
@@ -78,7 +78,7 @@ const formParapetyPrepareCodeForWordPress = () => {
     .pipe(dest(config.destDir))
 };
 
-const calcParapetyPrepareCodeForWordPress = () => {
+const calcParapetyPrepareCodeForGitHubPagesAndWordPress = () => {
   const cssContent = fs.readFileSync(`${config.destDir}/index.css`, 'utf8');
   const jsContent = fs.readFileSync(`${config.destDir}/bundle.js`, 'utf8');
   return src(config.srcHtmlCalc)
@@ -92,9 +92,17 @@ const calcParapetyPrepareCodeForWordPress = () => {
     .pipe(dest(config.destDir));
 };
 
+function watchCalc() {
+  gulp.watch('./src/index.html', gulp.series(calcParapetyPrepareCodeForGitHubPagesAndWordPress));
+  gulp.watch('./src/**/*.scss', gulp.series(compileSass, calcParapetyPrepareCodeForGitHubPagesAndWordPress));
+  gulp.watch(['./src/scripts/**/*', './src/types/**/*', './src/utils/**/*'], gulp.series(compileScripts, calcParapetyPrepareCodeForGitHubPagesAndWordPress));
+}
+
+gulp.task('dev', watchCalc);
+
 gulp.task('buildCalc', gulp.series(
   compileSass,
-  calcParapetyPrepareCodeForWordPress
+  calcParapetyPrepareCodeForGitHubPagesAndWordPress
 ));
 
 gulp.task('buildForm', gulp.series(

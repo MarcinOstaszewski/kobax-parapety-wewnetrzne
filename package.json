@@ -2,9 +2,9 @@
   "name": "parapety-wewnetrzne",
   "type": "module",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "dev": "gulp dev",
+    "parcelBuild": "npm cache clean && parcel build src/index.html",
     "build": "rollup -c && gulp"
   }
 }
