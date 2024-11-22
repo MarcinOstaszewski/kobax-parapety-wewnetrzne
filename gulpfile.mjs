@@ -12,6 +12,7 @@ import gulpRemoveHtml from 'gulp-remove-html';
 import rename from 'gulp-rename';
 import concat from 'gulp-concat';
 import fs from 'fs';
+import { exec } from 'child_process';
 
 console.log('NALEŻY URUCHAMIAĆ przez: "/parapety-wewnetrzne/npm run build"');
 
@@ -20,6 +21,7 @@ const config = {
   srcSassFile: './src/index.scss',
   srcCssFiles: ['./src/normalize.css', './src/parapety_wewnetrzne.css'],
   srcHtmlForm: './src/parapety-wewnetrzne.html',
+  srcTsCalcIndexFile: './src/index.ts',
   srcJsFiles: './src/parapety_wewnetrzne.js',
   replace: {
     from: /assets/g,
@@ -48,12 +50,11 @@ function compileStyles() {
     .pipe(dest(config.destDir));
 }
 
-function compileScripts() {
+function compileFormScripts() {
   return src(config.srcJsFiles)
     .pipe(concat(config.destJsFile))
     .pipe(dest(config.destDir));
 }
-
 
 const compileSass = () => {
   const sassCompiler = sass(dartSass);
@@ -92,10 +93,22 @@ const calcParapetyPrepareCodeForGitHubPagesAndWordPress = () => {
     .pipe(dest(config.destDir));
 };
 
+function runRollup(cb) {
+  exec('rollup -c', (err, stdout, stderr) => {
+    if (err) {
+      console.error(`exec error: ${err}`);
+      return cb(err);
+    }
+    console.log(`stdout: ${stdout}`);
+    console.error(`stderr: ${stderr}`);
+    cb();
+  });
+}
+
 function watchCalc() {
   gulp.watch('./src/index.html', gulp.series(calcParapetyPrepareCodeForGitHubPagesAndWordPress));
   gulp.watch('./src/**/*.scss', gulp.series(compileSass, calcParapetyPrepareCodeForGitHubPagesAndWordPress));
-  gulp.watch(['./src/scripts/**/*', './src/types/**/*', './src/utils/**/*'], gulp.series(compileScripts, calcParapetyPrepareCodeForGitHubPagesAndWordPress));
+  gulp.watch(['./src/scripts/**/*', './src/types/**/*', './src/utils/**/*'], gulp.series(runRollup, compileFormScripts, calcParapetyPrepareCodeForGitHubPagesAndWordPress));
 }
 
 gulp.task('dev', watchCalc);
@@ -107,7 +120,7 @@ gulp.task('buildCalc', gulp.series(
 
 gulp.task('buildForm', gulp.series(
   compileStyles,
-  compileScripts,
+  compileFormScripts,
   formParapetyPrepareCodeForWordPress
 ));
 
