@@ -11,7 +11,8 @@ export function showOrdersListFromLocalStorage() {
     ordersListSection.classList.remove('hidden');
     ordersListSection.querySelector('ul')!.innerHTML = '';
     orders.forEach(function(order: Order) {
-      const open = '<a class="make-order" href="' + order.url + order.queriesString + '" target="_blank">Zamów</a>';
+      const indexString = order.url.includes('fronty-meblowe') ? '' : 'index.html'; // localhost wymaga "index.html" w linkach, WordPress nie 
+      const open = '<a class="make-order" href="' + order.url + indexString + order.queriesString + '" target="_blank">Zamów</a>';
       const remove = '<button class="remove-order" type="button">Usuń</button>';
       const orderType = orderTypesMapping[order.type as unknown as (typeof orderTypes.normal) | (typeof orderTypes.multi)];
       const labelText = 'Typ: <strong>' + orderType + '</strong>';
@@ -29,7 +30,7 @@ export function showOrdersListFromLocalStorage() {
     ordersListSection.querySelectorAll('.remove-order').forEach(function(button, index) {
       button.addEventListener('click', function() { confirmRemoveOrder(index); });
     });
-    document.querySelector('.summary-price')!.innerHTML = 'Sumaryczna cena netto: <strong>' + summaryPriceNetto.toFixed(2) + ' zł</strong>, brutto: <strong>' + (summaryPriceNetto * 1.23).toFixed(2) + ' zł</strong>';
+    document.querySelector('.summary-price')!.innerHTML = 'Łączna cena netto: <strong>' + summaryPriceNetto.toFixed(2) + ' zł</strong>, brutto: <strong>' + (summaryPriceNetto * 1.23).toFixed(2) + ' zł</strong>';
   } else {
     ordersListSection.classList.add('hidden');
   }

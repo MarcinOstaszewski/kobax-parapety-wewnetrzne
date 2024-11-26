@@ -1,11 +1,13 @@
 import { formId } from "../consts/consts";
-import { addElementButton, addOrderButton, fieldsForPariatlReset, hurtRabat, krawedz, topPanelFields } from "../consts/consts-ui-elements";
+import { addElementButton, addOrderButton, confirmRemoveOrderDialog, fieldsForPariatlReset, hurtRabat, krawedz, topPanelFields } from "../consts/consts-ui-elements";
 import { clientKinds } from "../consts/mappings";
 import { removeOrderFromLocalStorage } from "../scripts/removeOrderFromLocalStorage";
 import { saveToLocalStorageAndUpdateDisplay } from "../scripts/saveToLocalStorageAndUpdateDisplay";
 import { setDiscountValue } from "../scripts/setDiscountValue";
 import { showHideGruboscOptions } from "../scripts/showHideGruboscOptions";
 import { getForm, getKlientKind, isSameKindOrder } from "./utils";
+
+let orderToRemoveIndex = -1;
 
 export function flashGruboscGroup() {
   const gruboscGroup = document.querySelector('.grubosc-radio-group') as HTMLElement;
@@ -41,7 +43,7 @@ export function resetForm() {
   form.reset();
   localStorage.removeItem(formId);
   showHideHurtRabat();
-  showHideGruboscOptions();
+  showHideGruboscOptions({isFormReset: true});
   saveToLocalStorageAndUpdateDisplay();
 }
 
@@ -106,18 +108,17 @@ export function handleBorderRadioClicked(event: Event) {
   if (selectedCorner) {
     checkIfStoneCornerSelected(selectedCorner.value);
   }
+  saveToLocalStorageAndUpdateDisplay();
+}
+
+export function removeOrderAndCloseDialog() {
+  removeOrderFromLocalStorage(orderToRemoveIndex);
+  confirmRemoveOrderDialog.close();
 }
 
 export function confirmRemoveOrder(index: number) {
-  const dialog: HTMLDialogElement | null = document.getElementById('potwierdz-usuniecie') as HTMLDialogElement;
-  if (!dialog) return;
-  dialog.showModal();
-  const dialogButton = dialog.querySelector('button') as HTMLButtonElement; 
-  dialogButton.addEventListener('click', function() {
-    removeOrderFromLocalStorage(index);
-    dialog.close();
-  });
-  dialog.addEventListener('click', function() { dialog.close() });
+  orderToRemoveIndex = index;
+  confirmRemoveOrderDialog.showModal();
 }
 
 export function flashNewListElement() {
