@@ -158,6 +158,14 @@ th.border-none {
   border: 0;
   background-color: var(--kbx-bg-control-color);
 }
+.control-cell:focus {
+  outline: none;
+  background-color: var(--kbx-main-color);
+  color: var(--kbx-white-color);
+}
+.form-check-input.control-cell:focus {
+  border: 2px solid var(--kbx-main-color);
+}
 .locked .control-cell {
   background-color: var(--kbx-bg-locked-color);
 }
@@ -311,6 +319,10 @@ input, select {
 }
 .orderer td .rodo-consent-container label {
   font-weight: normal;
+  padding: 6px;
+}
+.orderer td .rodo-consent-container label.missing-field-label-error {
+  background-color: var(--kbx-bg-error-color);
 }
 .orderer td sup {
   font-size: 10px;
@@ -320,7 +332,6 @@ input, select {
 .rodo-consent-container {
   display: flex;
   align-items: center;
-  margin: 6px;
   line-height: 12px;
 }
 .rodo-consent {
