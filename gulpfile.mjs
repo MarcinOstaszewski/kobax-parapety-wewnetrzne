@@ -14,15 +14,17 @@ import concat from 'gulp-concat';
 import fs from 'fs';
 import { exec } from 'child_process';
 
-console.log('NALEŻY URUCHAMIAĆ przez: "/parapety-wewnetrzne/npm run build"');
+console.log('!! NALEŻY URUCHAMIAĆ przez: "/parapety-wewnetrzne/npm run build"');
+console.log('!! Ew. "npm run dev" -> obserwuje zmiany, buduje Kalkulator i Formularze w folderze "gh-pages"');
+console.log('Pliki z "gh-pages" można otworzyć w Live Server');
 
 const config = {
   srcHtmlCalc: './src/index.html',
   srcSassFile: './src/index.scss',
-  srcCssFiles: ['./src/normalize.css', './src/parapety_wewnetrzne.css'],
+  srcFormCssFiles: ['./src/normalize.css', './src/parapety_wewnetrzne.css'],
   srcHtmlForm: './src/parapety-wewnetrzne.html',
   srcTsCalcIndexFile: './src/index.ts',
-  srcJsFiles: './src/parapety_wewnetrzne.js',
+  srcFormJsFiles: './src/parapety_wewnetrzne.js',
   replace: {
     from: /assets/g,
     to: 'https://www.fronty-meblowe.pl/formularz/wp-content/uploads/2024/11'
@@ -43,7 +45,7 @@ const config = {
 }
 
 function compileStyles() {
-  return src(config.srcCssFiles)
+  return src(config.srcFormCssFiles)
     .pipe(concat(config.destCssFile))
     .pipe(cleanCSS())
     .pipe(rename({ suffix: '.min' }))
@@ -51,7 +53,7 @@ function compileStyles() {
 }
 
 function compileFormScripts() {
-  return src(config.srcJsFiles)
+  return src(config.srcFormJsFiles)
     .pipe(concat(config.destJsFile))
     .pipe(dest(config.destDir));
 }
@@ -105,13 +107,19 @@ function runRollup(cb) {
   });
 }
 
+function watchForm() {
+  gulp.watch(config.srcHtmlForm, gulp.series(formParapetyPrepareCodeForWordPress));
+  gulp.watch(config.srcFormCssFiles, gulp.series(compileStyles, formParapetyPrepareCodeForWordPress));
+  gulp.watch(config.srcFormJsFiles, gulp.series(compileFormScripts, formParapetyPrepareCodeForWordPress));
+}
+
 function watchCalc() {
   gulp.watch('./src/index.html', gulp.series(calcParapetyPrepareCodeForGitHubPagesAndWordPress));
   gulp.watch('./src/**/*.scss', gulp.series(compileSass, calcParapetyPrepareCodeForGitHubPagesAndWordPress));
   gulp.watch(['./src/scripts/**/*', './src/types/**/*', './src/utils/**/*'], gulp.series(runRollup, compileFormScripts, calcParapetyPrepareCodeForGitHubPagesAndWordPress));
 }
 
-gulp.task('dev', watchCalc);
+gulp.task('dev', gulp.parallel(watchCalc, watchForm));
 
 gulp.task('buildCalc', gulp.series(
   compileSass,
