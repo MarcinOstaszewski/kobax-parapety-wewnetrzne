@@ -2,7 +2,7 @@
   display: inline-block;
   width: 90px;
   height: 45px;
-  border: 2px solid var(--medium-grey-color);
+  border: 2px solid var(--kbx-medium-grey-color);
 
   &.border-svg {
     border: none;
@@ -11,8 +11,8 @@
 }
 
 .corner-img {
-  border: 5px double var(--medium-grey-color);
-  border-top: 2px solid var(--medium-grey-color);
+  border: 5px double var(--kbx-medium-grey-color);
+  border-top: 2px solid var(--kbx-medium-grey-color);
 
   &.corner-r6 { border-radius: 0 0 6px 6px; }
   &.corner-r15 { border-radius: 0 0 15px 15px; }
@@ -26,13 +26,13 @@
 }
 
 .border-img {
-  background-color: var(--light-grey-color);
+  background-color: var(--kbx-light-grey-color);
   background: repeating-linear-gradient(
     -45deg,
-    var(--light-grey-color),
-    var(--light-grey-color) 5mm,
-    var(--black-color) 5.1mm,
-    var(--black-color) 5.3mm
+    var(--kbx-light-grey-color),
+    var(--kbx-light-grey-color) 5mm,
+    var(--kbx-black-color) 5.1mm,
+    var(--kbx-black-color) 5.3mm
   );
 
   &.border-r3 { border-radius: 5px 0 0 0; }
@@ -48,16 +48,16 @@
 
 .right-to-join {
   border-radius: 0 0 6px 0;
-  border-left: 2px solid var(--medium-grey-color);
+  border-left: 2px solid var(--kbx-medium-grey-color);
 }
 
 .left-to-join {
   border-radius: 0 0 0 6px;
-  border-right: 2px solid var(--medium-grey-color);
+  border-right: 2px solid var(--kbx-medium-grey-color);
 }
 
 .center-to-join {
   border-radius: 0;
-  border-left: 2px solid var(--medium-grey-color);
-  border-right: 2px solid var(--medium-grey-color);
+  border-left: 2px solid var(--kbx-medium-grey-color);
+  border-right: 2px solid var(--kbx-medium-grey-color);
 }

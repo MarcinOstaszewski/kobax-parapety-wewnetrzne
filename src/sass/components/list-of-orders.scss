@@ -21,7 +21,7 @@
       list-style: none;
       padding: 1rem 0.25rem;
       margin: 0 -0.25rem;
-      border-bottom: 1px solid var(--medium-grey-color);
+      border-bottom: 1px solid var(--kbx-medium-grey-color);
     }
   }
 
@@ -35,12 +35,12 @@
     border: none;
 
     &.normal-order {
-      background-color: var(--bg-flash-color);
+      background-color: var(--kbx-bg-flash-color);
     }
 
     &.multi-order {
-      background-color: var(--main-color);
-      color: var(--white-color);
+      background-color: var(--kbx-main-color);
+      color: var(--kbx-white-color);
     }
 
     div {
@@ -68,19 +68,19 @@
 
   .make-order, .remove-order {
     padding: 0.3rem 0.5rem;
-    color: var(--white-color);
+    color: var(--kbx-white-color);
     border: none;
     border-radius: 24px;
     display: block;
     text-decoration: none;
 
     &.make-order {
-      background-color: var(--info-color);
+      background-color: var(--kbx-info-color);
       text-align: center;
     }
 
     &.remove-order {
-      background-color: var(--danger-color);
+      background-color: var(--kbx-danger-color);
       cursor: pointer;
     }
   }

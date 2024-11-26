@@ -5,12 +5,12 @@
     font-style: normal;
     margin: 0;
     font-size: 14px;
-    color: var(--dark-grey-color);
+    color: var(--kbx-dark-grey-color);
 
     &.data-not-full {
       font-style: italic;
       font-weight: normal;
-      color: var(--medium-grey-color);
+      color: var(--kbx-medium-grey-color);
     }
   }
 

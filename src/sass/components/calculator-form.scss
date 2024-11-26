@@ -1,6 +1,6 @@
 .calculator-form {
   width: calc(100% - 5px);
-  min-width: var(--min-page-width);
-  max-width: var(--max-page-width);
+  min-width: var(--kbx-min-page-width);
+  max-width: var(--kbx-max-page-width);
   margin: 0 0 0 5px;
 }

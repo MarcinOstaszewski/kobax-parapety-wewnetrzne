@@ -3,7 +3,7 @@
   padding: 6px 0 6px 5px;
 
   &.locked {
-    background-color: var(--bg-locked-color);
+    background-color: var(--kbx-bg-locked-color);
 
     input, label {
       cursor: not-allowed;
@@ -14,7 +14,7 @@
 
   label {
     display: inline-block;
-    min-width: var(--left-column-width);
+    min-width: var(--kbx-left-column-width);
     line-height: 30px;
   }
 
@@ -32,7 +32,7 @@
 }
 
 .border-explanation {
-  margin-left: calc(var(--left-column-width) + 5px);
+  margin-left: calc(var(--kbx-left-column-width) + 5px);
   padding: 6px;
   font-style: italic;
 }
@@ -42,7 +42,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: var(--left-column-width);
+  width: var(--kbx-left-column-width);
 
   label {
     min-width: 50px;
@@ -57,7 +57,7 @@ input[type="number"], select {
 input[type="radio"] {
   height: 16px;
   width: 16px;
-  accent-color: var(--main-color);
+  accent-color: var(--kbx-main-color);
 }
 
 input.width-narrow {
@@ -93,5 +93,10 @@ label.width-very-narrow, input.width-very-narrow {
 
   input {
     margin-right: 5px;
+
+    &:focus {
+      outline-color: var(--kbx-main-color);
+      outline-width: 2px;
+    }
   }
 }

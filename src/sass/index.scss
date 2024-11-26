@@ -7,17 +7,17 @@ dialog {
   width: 400px;
   padding: 2rem;
   text-align: center;
-  color: var(--danger-color);
-  border: 2px solid var(--danger-color);
+  color: var(--kbx-danger-color);
+  border: 2px solid var(--kbx-danger-color);
   border-radius: 24px;
-  background-color: var(--white-color);
+  background-color: var(--kbx-white-color);
 
   button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     width: 50%;
-    color: var(--white-color);
-    background-color: var(--danger-color);
+    color: var(--kbx-white-color);
+    background-color: var(--kbx-danger-color);
     border: none;
     border-radius: 24px;
     display: inline-block;
@@ -30,9 +30,9 @@ dialog {
 }
 
 @keyframes flash {
-  0% { background-color: var(--white-color); }
-  20% { background-color: var(--bg-flash-color); }
-  100% { background-color: var(--white-color); }
+  0% { background-color: var(--kbx-white-color); }
+  20% { background-color: var(--kbx-bg-flash-color); }
+  100% { background-color: var(--kbx-white-color); }
 }
 
 /* UTILS */
@@ -48,4 +48,4 @@ dialog {
 .mt-md { margin-top: 2rem; }
 .ml-sm { margin-left: 1rem; }
 
-.text-gray { color: var(--grey-color); }
+.text-gray { color: var(--kbx-grey-color); }
