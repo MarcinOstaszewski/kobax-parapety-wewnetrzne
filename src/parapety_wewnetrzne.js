@@ -46,7 +46,7 @@
   }
 
   function removeRadiosErrorWarning() {
-    const deliveryRadioButtons = document.querySelectorAll("[name=delivery]");
+    const deliveryRadioButtons = document.querySelectorAll('[name="' + DOSTAWA + '"]');
     deliveryRadioButtons.forEach(function(radio) {
       radio.classList.remove("required-field-error");
     });
@@ -59,13 +59,31 @@
         const deliveryRadioButtons = document.querySelectorAll('[name="' + DOSTAWA + '"]');
         deliveryRadioButtons.forEach(function(radio) {
           radio.classList.add("required-field-error");
-          radio.addEventListener("click", function() {
-            removeRadiosErrorWarning();
-          });
+          radio.addEventListener("click", removeRadiosErrorWarning);
+          radio.addEventListener("change", removeRadiosErrorWarning);
         });
       } else {
         const fieldElement = document.querySelector("[name=" + field + "]");
         fieldElement.classList.add("required-field-error");
+        fieldElement.addEventListener("click", function() {
+          fieldElement.classList.remove("required-field-error");
+        });
+        fieldElement.addEventListener("input", function() {
+          fieldElement.classList.remove("required-field-error");
+        });
+        if (field === "zgoda-rodo") {
+          const label = fieldElement.closest("label")
+          label.classList.add("missing-field-label-error");
+          label.addEventListener("click", function() {
+            label.classList.remove("missing-field-label-error");
+          });
+          label.addEventListener("input", function() {
+            label.classList.remove("missing-field-label-error");
+          });
+          fieldElement.addEventListener("click", function() {
+            label.classList.remove("missing-field-label-error");
+          });
+        }
       }
     });
     return missingFieldsList.length === 0;
