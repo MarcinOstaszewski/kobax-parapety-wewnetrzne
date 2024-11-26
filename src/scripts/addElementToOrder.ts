@@ -68,8 +68,8 @@ export function addElementToOrder() {
       partialFormReset();
       showOrdersListFromLocalStorage();
       flashNewListElement();
-    } else {
-      addNewOrderToList(orderTypes.multi);
+      return;
     }
   }
+  addNewOrderToList(orderTypes.multi);
 }
