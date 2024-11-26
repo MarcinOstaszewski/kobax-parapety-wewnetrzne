@@ -18,3 +18,5 @@ export const addElementButton = document.querySelector('.add-element-button') as
 export const ordersListSection = document.querySelector('.orders-list') as HTMLElement;
 export const topPanelFields = [klientDetalHurt, rabatInput, rodzaj, grubosc, kolor, naroznik, krawedz];
 export const fieldsForPariatlReset = [szerokoscInput, dlugoscInput, iloscInput, ksztalt];
+export const confirmRemoveOrderDialog = document.getElementById('potwierdz-usuniecie') as HTMLDialogElement;
+export const confirmRemoveOrderDialogButton = confirmRemoveOrderDialog.querySelector('button') as HTMLButtonElement;
