@@ -322,6 +322,14 @@
       <button id="confirm-form-reset" class="form-button reset-button">WYCZYŚĆ</button>
     </div>
   </dialog>
+
+  <script>
+    const screenWidth = window.innerWidth;
+    if (innerWidth < 900) {
+      const viewport = document.querySelector('meta[name="viewport"]');
+      viewport.setAttribute('content', 'width=900');
+    }
+  </script>
   
   <!-- inject:scripts -->
 <!--<Deject>-->

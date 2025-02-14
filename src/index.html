@@ -274,9 +274,18 @@
         <h3>Złóż zamówienie: ◉ nowe</h3>
       </div>
     </dialog>
+    <!-- inject:asyncScripts -->
     <!-- inject:scripts -->
   </main>
 </div>
+<script>
+  const screenWidth = window.innerWidth;
+  if (innerWidth < 900) {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    viewport.setAttribute('content', 'width=900');
+  }
+</script>
+
 <!--<Deject>-->
 </body>
 </html>

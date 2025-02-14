@@ -1,7 +1,7 @@
 import { getRabat } from "..";
 import { AKTUALNE_ZAMOWIENIE, CENA_NETTO, elementsListOpeningTag, WPROWADZ_WYMIARY } from "../consts/consts";
 import { addElementButton, addOrderButton, currentOrderDescription, zamowienieGroup } from "../consts/consts-ui-elements";
-import { cenyZa1m2, clientKinds, ksztaltMapping } from "../consts/mappings";
+import { clientKinds, getNetto, ksztaltMapping } from "../consts/mappings";
 import { toggleOrderButtons } from "../utils/utils-ui-updates";
 
 export function updateCurrentOrderDescription(data: { [key: string]: FormDataEntryValue }) {
@@ -66,7 +66,7 @@ export function updateCurrentOrderDescription(data: { [key: string]: FormDataEnt
       if (rodzaj) {
         if (grubosc) {
           // @ts-expect-error // can't use values from mappings as keys in nested objects
-          cena = cenyZa1m2[klient][kolor][rodzaj][grubosc];
+          cena = window.cenyZa1m2[klient][kolor][rodzaj][grubosc];
         }
       }
     }
@@ -78,8 +78,8 @@ export function updateCurrentOrderDescription(data: { [key: string]: FormDataEnt
         if (!isNaN(ilosc)) {
           const surface = szerokosc * dlugosc / 100;
           powierzchnia = Math.round(surface) + ' cm²' + ' (' + (surface / 10000).toFixed(3) + ' m²)';
-          const cenaNetto = (cena * (surface / 10000) * ilosc * getRabat()).toFixed(2) + ' zł';
-          const cenaBrutto = (cena * (surface / 10000) * 1.23 * ilosc * getRabat()).toFixed(2) + ' zł';
+          const cenaNetto = getNetto(cena * (surface / 10000) * ilosc * getRabat()).toFixed(2) + ' zł';
+          const cenaBrutto = (cena * (surface / 10000) * ilosc * getRabat()).toFixed(2) + ' zł';
           addDescriptionFragment(" powierzchnia: ", powierzchnia, '', ',');
           addDescriptionFragment(" cena brutto: ", cenaBrutto, '', ',');
           addDescriptionFragment(' cena netto: <span id="' + CENA_NETTO + '">', cenaNetto, '</span>', '.');

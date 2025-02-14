@@ -14,7 +14,7 @@ import concat from 'gulp-concat';
 import fs from 'fs';
 import { exec } from 'child_process';
 
-console.log('!! NALEŻY URUCHAMIAĆ przez: "/parapety-wewnetrzne/npm run build"');
+console.log('!! NALEŻY URUCHAMIAĆ przez: ".../parapety-wewnetrzne/npm run build"');
 console.log('!! Ew. "npm run dev" -> obserwuje zmiany, buduje Kalkulator i Formularze w folderze "gh-pages"');
 console.log('Pliki z "gh-pages" można otworzyć w Live Server');
 
@@ -31,8 +31,11 @@ const config = {
   },
   inject: {
     css: '<!-- inject:styles -->',
-    js: '<!-- inject:scripts -->'
+    js: '<!-- inject:scripts -->',
+    // asyncJs: '<!-- inject:asyncScripts -->',
+    asyncScriptCall: '//// inject:async script call',
   },
+  // asyncJsDir: './src/asyncJs',
   destDir: './dist',
   destDirCalcGHPages: './gh-pages',
   destDirFormGHPages: './gh-pages/parapety-wewnetrzne',
@@ -84,10 +87,13 @@ const formParapetyPrepareCodeForWordPress = () => {
 const calcParapetyPrepareCodeForGitHubPagesAndWordPress = () => {
   const cssContent = fs.readFileSync(`${config.destDir}/index.css`, 'utf8');
   const jsContent = fs.readFileSync(`${config.destDir}/bundle.js`, 'utf8');
+  // const asyncJsContent = fs.readFileSync(`${config.asyncJsDir}/asyncPriceUpdate.js`, 'utf8');
   return src(config.srcHtmlCalc)
     .pipe(replace(config.replace.from, config.replace.to)) // replace paths to images uploaded to WordPress
     .pipe(injectString.replace(config.inject.css, `<style> ${cssContent} </style>`)) // injects styles to HTML file
     .pipe(injectString.replace(config.inject.js, `<script> ${jsContent} </script>`)) // injects scripts to HTML file
+    // .pipe(injectString.replace(config.inject.asyncJs, `<script> ${asyncJsContent} </script>`)) // injects scripts to HTML file
+    // .pipe(injectString.replace(config.inject.asyncScriptCall, 'asyncPriceUpdate();')) // injects async script call
     .pipe(rename(config.destHtmlCalculatorGHPages))
     .pipe(dest(config.destDirCalcGHPages))
     .pipe(gulpRemoveHtml())

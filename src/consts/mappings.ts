@@ -17,56 +17,58 @@ export enum rodzajMapping {
   wilgociouodporniony = 'wilgociouodporniony'
 };
 
-export const cenyZa1m2 = {
+// export const
+// @ts-ignore
+window.cenyZa1m2 = {
   [clientKinds.hurtowy]: {
     [kolorMapping.folia]: {
       [rodzajMapping.standard]: {
-        18: 260.2,
-        22: 274.8,
-        28: 302.4
+        18: 360,
+        22: 380,
+        28: 420
       },
       [rodzajMapping.wilgociouodporniony]: {
-        19: 311.4,
-        25: 362.6,
-        30: 399.2
+        19: 430,
+        25: 500,
+        30: 550
       }
     },
     [kolorMapping.lakier]: {
       [rodzajMapping.standard]: {
-        18: 345.5,
-        22: 369.1,
-        28: 392.7
+        18: 480,
+        22: 510,
+        28: 540
       },
       [rodzajMapping.wilgociouodporniony]: {
-        19: 375.6,
-        25: 411.4,
-        30: 469.9
+        19: 520,
+        25: 570,
+        30: 650
       }
     }
   },
   [clientKinds.detaliczny]: {
     [kolorMapping.folia]: {
       [rodzajMapping.standard]: {
-        18: getNetto(365),
-        22: getNetto(433),
-        28: getNetto(480)
+        18: 420,
+        22: 490,
+        28: 540
       },
       [rodzajMapping.wilgociouodporniony]: {
-        19: getNetto(499),
-        25: getNetto(580),
-        30: getNetto(641)
+        19: 560,
+        25: 650,
+        30: 720
       }
     },
     [kolorMapping.lakier]: {
       [rodzajMapping.standard]: {
-        18: getNetto(776),
-        22: getNetto(1542),
-        28: getNetto(893)
+        18: 870,
+        22: 950,
+        28: 1010
       },
       [rodzajMapping.wilgociouodporniony]: {
-        19: getNetto(803),
-        25: getNetto(878),
-        30: getNetto(953)
+        19: 899,
+        25: 990,
+        30: 1100
       }
     }
   }

@@ -1,3 +1,10 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+UŻYWAĆ instrukcji z katalogu głównego:
+parapety-wewnetrzne/README.md
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 Aby stworzyć gotowy kod FORMULARZA PARAPETÓW MDF,
 do wklejenia w bloku CustomHTML na Stronie WordPress
 (! nie może być Post - tylko Strona działa !)
